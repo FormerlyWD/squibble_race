@@ -1,0 +1,130 @@
+[gd_scene load_steps=11 format=3 uid="uid://b04mct62lhdak"]
+
+[ext_resource type="Script" path="res://scenes/main_scene.gd" id="1_lnj0d"]
+[ext_resource type="Script" path="res://scenes/systems.gd" id="2_wb70o"]
+[ext_resource type="Script" path="res://scenes/spawn_node.gd" id="2_xgbga"]
+[ext_resource type="Script" path="res://scenes/signal_win.gd" id="3_2nrp7"]
+[ext_resource type="PackedScene" uid="uid://diosb52ujdi6y" path="res://art/endline_artcomponent.tscn" id="4_0v1a0"]
+[ext_resource type="Script" path="res://art/endline_artcomponent.gd" id="5_iraod"]
+[ext_resource type="Script" path="res://scenes/camera_2d.gd" id="6_nht0h"]
+[ext_resource type="Script" path="res://scenes/all_runners.gd" id="6_rvdtp"]
+[ext_resource type="PackedScene" uid="uid://csqh6y7sh6rrj" path="res://runner/runner.tscn" id="8_dnm6f"]
+
+[sub_resource type="Theme" id="Theme_x5gxb"]
+
+[node name="main_scene" type="Node2D"]
+script = ExtResource("1_lnj0d")
+
+[node name="systems" type="Node" parent="."]
+script = ExtResource("2_wb70o")
+
+[node name="spawn_obstacles" type="Node" parent="systems"]
+unique_name_in_owner = true
+script = ExtResource("2_xgbga")
+ending_line = 12280
+
+[node name="signal_win" type="Node" parent="systems"]
+unique_name_in_owner = true
+script = ExtResource("3_2nrp7")
+
+[node name="game_environment" type="Node2D" parent="."]
+
+[node name="end_line_art_comp" parent="game_environment" instance=ExtResource("4_0v1a0")]
+unique_name_in_owner = true
+position = Vector2(282, 0)
+script = ExtResource("5_iraod")
+
+[node name="start_line_art_comp" parent="game_environment" instance=ExtResource("4_0v1a0")]
+unique_name_in_owner = true
+position = Vector2(0, -6.25)
+script = ExtResource("5_iraod")
+
+[node name="all_obstacles" type="Node2D" parent="game_environment"]
+unique_name_in_owner = true
+
+[node name="all_runners" type="Node2D" parent="game_environment"]
+unique_name_in_owner = true
+script = ExtResource("6_rvdtp")
+
+[node name="runner" parent="game_environment/all_runners" instance=ExtResource("8_dnm6f")]
+position = Vector2(-2, -60)
+acceleration = 11.0
+speed = 0.0
+
+[node name="runner2" parent="game_environment/all_runners" instance=ExtResource("8_dnm6f")]
+position = Vector2(-1, -25)
+acceleration = 0.0
+speed = 46.0
+
+[node name="runner3" parent="game_environment/all_runners" instance=ExtResource("8_dnm6f")]
+position = Vector2(-1, 13)
+acceleration = 0.0
+quadratic_acceleration = 4.6
+speed = 0.0
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(184.75, 0)
+zoom = Vector2(3.475, 3.475)
+script = ExtResource("6_nht0h")
+
+[node name="measure_points_y" type="Node" parent="."]
+
+[node name="y" type="Node2D" parent="measure_points_y"]
+position = Vector2(9.065, -47.25)
+
+[node name="y2" type="Node2D" parent="measure_points_y"]
+position = Vector2(9.065, -28.75)
+
+[node name="y3" type="Node2D" parent="measure_points_y"]
+position = Vector2(9.065, -10.25)
+
+[node name="y4" type="Node2D" parent="measure_points_y"]
+position = Vector2(9.065, 8.25)
+
+[node name="y5" type="Node2D" parent="measure_points_y"]
+position = Vector2(9.065, 26.75)
+
+[node name="y6" type="Node2D" parent="measure_points_y"]
+position = Vector2(9.065, 45.25)
+
+[node name="measure_points_x" type="Node" parent="."]
+
+[node name="starting_point" type="Node2D" parent="measure_points_x"]
+position = Vector2(9, -59)
+
+[node name="end_point" type="Node2D" parent="measure_points_x"]
+position = Vector2(94.015, -53.75)
+
+[node name="UI" type="CanvasLayer" parent="."]
+offset = Vector2(779.2, 97.325)
+transform = Transform2D(1, 0, 0, 1, 779.2, 97.325)
+
+[node name="distance_of_runner_1" type="TextEdit" parent="UI"]
+unique_name_in_owner = true
+offset_left = -25.0
+offset_top = -95.0
+offset_right = 250.0
+offset_bottom = 16.0
+theme = SubResource("Theme_x5gxb")
+theme_override_font_sizes/font_size = 76
+text = "f"
+
+[node name="distance_of_runner_2" type="TextEdit" parent="UI"]
+unique_name_in_owner = true
+offset_left = 250.54
+offset_top = -95.325
+offset_right = 525.54
+offset_bottom = 15.675
+theme = SubResource("Theme_x5gxb")
+theme_override_font_sizes/font_size = 76
+text = "f"
+
+[node name="distance_of_runner_3" type="TextEdit" parent="UI"]
+unique_name_in_owner = true
+offset_left = 526.54
+offset_top = -94.325
+offset_right = 801.54
+offset_bottom = 16.675
+theme = SubResource("Theme_x5gxb")
+theme_override_font_sizes/font_size = 76
+text = "f"

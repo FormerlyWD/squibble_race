@@ -1,0 +1,57 @@
+{
+  "1": {
+    "speed": null,
+    "acceleration": "12,34,2",
+    "quadratic_acceleration": null,
+    "strength": null,
+    "recovery_speed_reduction": null,
+    "weaknesses": null,
+    "resistance": null,
+    "abillities": null,
+    "health": null
+  },
+  "2": {
+    "speed": null,
+    "acceleration": "12,34,2",
+    "quadratic_acceleration": null,
+    "strength": null,
+    "recovery_speed_reduction": null,
+    "weaknesses": null,
+    "resistance": null,
+    "abillities": null,
+    "health": null
+  },
+  "3": {
+    "speed": null,
+    "acceleration": "12,34,2",
+    "quadratic_acceleration": null,
+    "strength": null,
+    "recovery_speed_reduction": null,
+    "weaknesses": null,
+    "resistance": null,
+    "abillities": null,
+    "health": null
+  },
+  "4": {
+    "speed": null,
+    "acceleration": "12,34,2",
+    "quadratic_acceleration": null,
+    "strength": null,
+    "recovery_speed_reduction": null,
+    "weaknesses": null,
+    "resistance": null,
+    "abillities": null,
+    "health": null
+  },
+  "5": {
+    "speed": null,
+    "acceleration": "12,34,2",
+    "quadratic_acceleration": null,
+    "strength": null,
+    "recovery_speed_reduction": null,
+    "weaknesses": null,
+    "resistance": null,
+    "abillities": null,
+    "health": null
+  }
+}

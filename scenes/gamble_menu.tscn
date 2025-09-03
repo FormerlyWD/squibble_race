@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://bsg6jw5fryqo1"]
+
+[ext_resource type="Texture2D" uid="uid://c07mivxdr3po4" path="res://art/runner_backgrounds/Sprite-0001.png" id="1_2pe0j"]
+[ext_resource type="Texture2D" uid="uid://1gnmllamqd7l" path="res://art/runner_backgrounds/Sprite-0002.png" id="2_v08hl"]
+[ext_resource type="Texture2D" uid="uid://dx65dnq8w43rf" path="res://art/runner_backgrounds/Sprite-0004.png" id="3_ijhco"]
+
+[node name="choice_menu" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(10.055, 10.055)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-15.5, -32)
+texture = ExtResource("1_2pe0j")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-15.5, 0)
+texture = ExtResource("2_v08hl")
+
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-15.5, 32)
+texture = ExtResource("3_ijhco")

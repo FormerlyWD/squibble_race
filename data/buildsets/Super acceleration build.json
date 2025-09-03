@@ -1,0 +1,26 @@
+{
+  "1": {
+	"speed": "0,7,2",
+	"acceleration": 0,
+	"quadratic_acceleration": "35,65,100",
+	"strength": "1,10,2",
+	"recovery_speed_reduction": "1,2,2",
+	"health": "1,10,2"
+  },
+  "2": {
+	"speed": "0,7,2",
+	"acceleration": 0,
+	"quadratic_acceleration": "18,32,10",
+	"strength": "1,12,2",
+	"recovery_speed_reduction": "1,2,2",
+	"health": "1,10,2"
+  },
+  "3": {
+	"speed": "0,7,2",
+	"acceleration": 0,
+	"quadratic_acceleration": "46,70,10",
+	"strength": "1,15,2",
+	"recovery_speed_reduction": "1,2,2",
+	"health": "1,15,2"
+  }
+}
