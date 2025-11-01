@@ -1,0 +1,110 @@
+[gd_scene load_steps=7 format=3 uid="uid://k1qevb33yro6"]
+
+[ext_resource type="Script" path="res://popups/new_version/global_popup.gd" id="1_o176m"]
+[ext_resource type="Texture2D" uid="uid://uegr88pg2akl" path="res://art/popups/small6.png" id="2_8x4br"]
+
+[sub_resource type="FontFile" id="FontFile_n0hau"]
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/128/0/ascent = 0.0
+cache/0/128/0/descent = 0.0
+cache/0/128/0/underline_position = 0.0
+cache/0/128/0/underline_thickness = 0.0
+cache/0/128/0/scale = 1.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_duv4k"]
+font_size = 128
+outline_size = 72
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="FontFile" id="FontFile_xjih7"]
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/64/0/ascent = 0.0
+cache/0/64/0/descent = 0.0
+cache/0/64/0/underline_position = 0.0
+cache/0/64/0/underline_thickness = 0.0
+cache/0/64/0/scale = 1.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_tcv86"]
+font_size = 64
+font_color = Color(0.305882, 0.129412, 0.25098, 1)
+outline_color = Color(0, 0, 0, 1)
+
+[node name="global_popup" type="Node2D"]
+script = ExtResource("1_o176m")
+
+[node name="primary_popup" type="Sprite2D" parent="."]
+texture = ExtResource("2_8x4br")
+
+[node name="name" type="Label" parent="primary_popup"]
+texture_filter = 1
+custom_minimum_size = Vector2(152.845, 138.772)
+offset_left = -16.0
+offset_top = -11.0
+offset_right = 1051.0
+offset_bottom = 161.0
+scale = Vector2(0.025, 0.025)
+theme_override_fonts/font = SubResource("FontFile_n0hau")
+theme_override_font_sizes/font_size = 64
+text = "Item Name"
+label_settings = SubResource("LabelSettings_duv4k")
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="description" type="Label" parent="primary_popup"]
+texture_filter = 1
+custom_minimum_size = Vector2(152.845, 138.772)
+offset_left = -14.0
+offset_top = -6.0
+offset_right = 1106.0
+offset_bottom = 474.0
+scale = Vector2(0.025, 0.025)
+theme_override_fonts/font = SubResource("FontFile_xjih7")
+theme_override_font_sizes/font_size = 64
+text = "This item does ---- whilst making the ---- blank"
+label_settings = SubResource("LabelSettings_tcv86")
+autowrap_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="sec" type="Sprite2D" parent="."]
+position = Vector2(33, 0)
+texture = ExtResource("2_8x4br")
+
+[node name="name" type="Label" parent="sec"]
+texture_filter = 1
+custom_minimum_size = Vector2(152.845, 138.772)
+offset_left = -16.0
+offset_top = -11.0
+offset_right = 1051.0
+offset_bottom = 161.0
+scale = Vector2(0.025, 0.025)
+theme_override_fonts/font = SubResource("FontFile_n0hau")
+theme_override_font_sizes/font_size = 64
+text = "Item Name"
+label_settings = SubResource("LabelSettings_duv4k")
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+metadata/_edit_lock_ = true
+
+[node name="description" type="Label" parent="sec"]
+texture_filter = 1
+custom_minimum_size = Vector2(152.845, 138.772)
+offset_left = -14.0
+offset_top = -6.0
+offset_right = 1106.0
+offset_bottom = 474.0
+scale = Vector2(0.025, 0.025)
+theme_override_fonts/font = SubResource("FontFile_xjih7")
+theme_override_font_sizes/font_size = 64
+text = "This item does ---- whilst making the ---- blank"
+label_settings = SubResource("LabelSettings_tcv86")
+autowrap_mode = 2
+metadata/_edit_use_anchors_ = true
+metadata/_edit_lock_ = true

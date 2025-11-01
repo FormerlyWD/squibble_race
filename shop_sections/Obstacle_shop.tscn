@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://dngkmawe005i0"]
+
+[ext_resource type="Script" path="res://shop_sections/obstacle_shop.gd" id="1_v0osv"]
+[ext_resource type="Texture2D" uid="uid://cd18qar2173yr" path="res://art/shops/Sprite-0001.png" id="1_virvg"]
+[ext_resource type="PackedScene" uid="uid://jq4fjdr0imvr" path="res://shop_sections/items/base_item.tscn" id="2_1oaou"]
+
+[node name="ObstacleShop" type="Node2D"]
+script = ExtResource("1_v0osv")
+
+[node name="silhouette2" type="Sprite2D" parent="."]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(1, 0)
+scale = Vector2(20, 20)
+texture = ExtResource("1_virvg")
+
+[node name="item" parent="." instance=ExtResource("2_1oaou")]
+position = Vector2(606, 218)
+scale = Vector2(20, 20)
+description = "Be speedy idk"
+item_name = "Speedy"
+item_type = "obstacle"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[editable path="item"]

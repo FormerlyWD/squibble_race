@@ -1,14 +1,17 @@
-[gd_scene load_steps=11 format=3 uid="uid://b04mct62lhdak"]
+[gd_scene load_steps=14 format=3 uid="uid://b04mct62lhdak"]
 
 [ext_resource type="Script" path="res://scenes/main_scene.gd" id="1_lnj0d"]
 [ext_resource type="Script" path="res://scenes/systems.gd" id="2_wb70o"]
 [ext_resource type="Script" path="res://scenes/spawn_node.gd" id="2_xgbga"]
 [ext_resource type="Script" path="res://scenes/signal_win.gd" id="3_2nrp7"]
 [ext_resource type="PackedScene" uid="uid://diosb52ujdi6y" path="res://art/endline_artcomponent.tscn" id="4_0v1a0"]
-[ext_resource type="Script" path="res://art/endline_artcomponent.gd" id="5_iraod"]
+[ext_resource type="Script" path="res://scenes/track_length.gd" id="5_0qx5c"]
+[ext_resource type="Script" path="res://scripts/endline_artcomponent.gd" id="5_iraod"]
 [ext_resource type="Script" path="res://scenes/camera_2d.gd" id="6_nht0h"]
 [ext_resource type="Script" path="res://scenes/all_runners.gd" id="6_rvdtp"]
-[ext_resource type="PackedScene" uid="uid://csqh6y7sh6rrj" path="res://runner/runner.tscn" id="8_dnm6f"]
+[ext_resource type="Script" path="res://scenes/length_testing.gd" id="6_yh4gp"]
+[ext_resource type="Script" path="res://scenes/field_functionality.gd" id="7_06qor"]
+[ext_resource type="PackedScene" uid="uid://by5ptkfsbnl2t" path="res://objects/obstacle.tscn" id="10_10sij"]
 
 [sub_resource type="Theme" id="Theme_x5gxb"]
 
@@ -21,17 +24,42 @@ script = ExtResource("2_wb70o")
 [node name="spawn_obstacles" type="Node" parent="systems"]
 unique_name_in_owner = true
 script = ExtResource("2_xgbga")
-ending_line = 12280
+obstacle_odd_requirement = 98
 
 [node name="signal_win" type="Node" parent="systems"]
 unique_name_in_owner = true
 script = ExtResource("3_2nrp7")
 
+[node name="measurement_points" type="Node" parent="systems"]
+unique_name_in_owner = true
+script = ExtResource("5_0qx5c")
+
+[node name="length_testing" type="Node" parent="systems"]
+unique_name_in_owner = true
+script = ExtResource("6_yh4gp")
+default_acc_test_modifier = 2.0
+default_sacc_test_modifier = 0.2
+speed_increase = 5.0
+power_speed_increase = 10.0
+
+[node name="runner_similarity_gap_acc" type="Timer" parent="systems/length_testing"]
+unique_name_in_owner = true
+wait_time = 0.2
+
+[node name="runner_similarity_gap_sacc" type="Timer" parent="systems/length_testing"]
+unique_name_in_owner = true
+wait_time = 0.1
+
+[node name="field_functionality" type="Node" parent="systems"]
+script = ExtResource("7_06qor")
+
 [node name="game_environment" type="Node2D" parent="."]
+
+[node name="outside_environment_layer1" type="Node2D" parent="game_environment"]
 
 [node name="end_line_art_comp" parent="game_environment" instance=ExtResource("4_0v1a0")]
 unique_name_in_owner = true
-position = Vector2(282, 0)
+position = Vector2(246.135, -6.25)
 script = ExtResource("5_iraod")
 
 [node name="start_line_art_comp" parent="game_environment" instance=ExtResource("4_0v1a0")]
@@ -42,29 +70,37 @@ script = ExtResource("5_iraod")
 [node name="all_obstacles" type="Node2D" parent="game_environment"]
 unique_name_in_owner = true
 
+[node name="obstacle" parent="game_environment/all_obstacles" instance=ExtResource("10_10sij")]
+position = Vector2(79, -10)
+
 [node name="all_runners" type="Node2D" parent="game_environment"]
 unique_name_in_owner = true
 script = ExtResource("6_rvdtp")
 
-[node name="runner" parent="game_environment/all_runners" instance=ExtResource("8_dnm6f")]
-position = Vector2(-2, -60)
-acceleration = 11.0
-speed = 0.0
+[node name="all_comparison_lines" type="Node2D" parent="game_environment"]
+visible = false
 
-[node name="runner2" parent="game_environment/all_runners" instance=ExtResource("8_dnm6f")]
-position = Vector2(-1, -25)
-acceleration = 0.0
-speed = 46.0
+[node name="start_comparison_line" type="Line2D" parent="game_environment/all_comparison_lines"]
+unique_name_in_owner = true
+position = Vector2(42, -92)
+points = PackedVector2Array(0, -18, 0, 170)
 
-[node name="runner3" parent="game_environment/all_runners" instance=ExtResource("8_dnm6f")]
-position = Vector2(-1, 13)
-acceleration = 0.0
-quadratic_acceleration = 4.6
-speed = 0.0
+[node name="acc_to_speed_comparison_line" type="Line2D" parent="game_environment/all_comparison_lines"]
+unique_name_in_owner = true
+position = Vector2(112, -94)
+points = PackedVector2Array(0, -18, 0, 170)
 
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(184.75, 0)
-zoom = Vector2(3.475, 3.475)
+[node name="sacc_to_acc_comparison_line" type="Line2D" parent="game_environment/all_comparison_lines"]
+unique_name_in_owner = true
+position = Vector2(224, -90)
+points = PackedVector2Array(0, -18, 0, 170)
+
+[node name="outside_environment_layer2" type="Node2D" parent="game_environment"]
+
+[node name="main_camera" type="Camera2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(119, -2)
+zoom = Vector2(4.246, 4.246)
 script = ExtResource("6_nht0h")
 
 [node name="measure_points_y" type="Node" parent="."]
@@ -128,3 +164,6 @@ offset_bottom = 16.675
 theme = SubResource("Theme_x5gxb")
 theme_override_font_sizes/font_size = 76
 text = "f"
+
+[connection signal="timeout" from="systems/length_testing/runner_similarity_gap_acc" to="systems/length_testing" method="_on_runner_similarity_gap_timeout"]
+[connection signal="timeout" from="systems/length_testing/runner_similarity_gap_sacc" to="systems/length_testing" method="_on_runner_similarity_gap_sacc_timeout"]

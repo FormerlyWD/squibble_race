@@ -156,8 +156,6 @@ func read_file():
 		prerandomized_variances[variance_names_to_paths.find_key(file_path)] = int_based_parse_result
 func _ready() -> void:
 	read_file()
-	$"..".create_new_runner_profile()
-	$"..".create_new_runner_profile()
 func get_random_variance() -> String:
 	var random_variance_num:int = random.n(0,variance_names.size()-1)
 	return variance_names[random_variance_num]

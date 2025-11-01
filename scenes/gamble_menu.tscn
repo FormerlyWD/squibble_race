@@ -1,25 +1,1081 @@
-[gd_scene load_steps=4 format=3 uid="uid://bsg6jw5fryqo1"]
+[gd_scene load_steps=25 format=3 uid="uid://bsg6jw5fryqo1"]
 
-[ext_resource type="Texture2D" uid="uid://c07mivxdr3po4" path="res://art/runner_backgrounds/Sprite-0001.png" id="1_2pe0j"]
-[ext_resource type="Texture2D" uid="uid://1gnmllamqd7l" path="res://art/runner_backgrounds/Sprite-0002.png" id="2_v08hl"]
-[ext_resource type="Texture2D" uid="uid://dx65dnq8w43rf" path="res://art/runner_backgrounds/Sprite-0004.png" id="3_ijhco"]
+[ext_resource type="Script" path="res://scenes/gamble_menu.gd" id="1_wfe4v"]
+[ext_resource type="Script" path="res://scenes/data_table.gd" id="2_sge07"]
+[ext_resource type="Script" path="res://scenes/confirm.gd" id="3_ejq5b"]
+[ext_resource type="FontFile" uid="uid://32fkphkdgibf" path="res://art/font/LowresPixel-Regular.otf" id="3_pvhkl"]
+[ext_resource type="Script" path="res://scenes/next_user.gd" id="4_0e1hg"]
+[ext_resource type="Script" path="res://scenes/next_scene_to_field.gd" id="4_m0162"]
+[ext_resource type="Script" path="res://scenes/next_scene.gd" id="5_pvkbt"]
+[ext_resource type="Script" path="res://scenes/field_data_table.gd" id="6_1sc1i"]
+[ext_resource type="Script" path="res://shop_sections/button_scripts/go_to_loan.gd" id="7_352m5"]
+[ext_resource type="Script" path="res://scenes/confirm_selection.gd" id="7_bac6e"]
+[ext_resource type="PackedScene" uid="uid://drynghjlg35py" path="res://shop_sections/loan_shop.tscn" id="7_nuigq"]
+[ext_resource type="PackedScene" uid="uid://pgdeuie7mug6" path="res://shop_sections/Power_cards_shop.tscn" id="12_4248i"]
+[ext_resource type="Script" path="res://scenes/runner_specification.gd" id="13_2e70t"]
+[ext_resource type="PackedScene" uid="uid://dngkmawe005i0" path="res://shop_sections/Obstacle_shop.tscn" id="14_15qsb"]
+[ext_resource type="PackedScene" uid="uid://12wna1st82bg" path="res://shop_sections/Climate_tokens.tscn" id="15_fxs43"]
+
+[sub_resource type="FontFile" id="FontFile_ieimv"]
+cache/0/128/0/ascent = 0.0
+cache/0/128/0/descent = 0.0
+cache/0/128/0/underline_position = 0.0
+cache/0/128/0/underline_thickness = 0.0
+cache/0/128/0/scale = 1.0
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+
+[sub_resource type="FontFile" id="FontFile_rrap1"]
+cache/0/128/0/ascent = 0.0
+cache/0/128/0/descent = 0.0
+cache/0/128/0/underline_position = 0.0
+cache/0/128/0/underline_thickness = 0.0
+cache/0/128/0/scale = 1.0
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_40o44"]
+font_size = 128
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="FontFile" id="FontFile_rntmy"]
+cache/0/128/0/ascent = 0.0
+cache/0/128/0/descent = 0.0
+cache/0/128/0/underline_position = 0.0
+cache/0/128/0/underline_thickness = 0.0
+cache/0/128/0/scale = 1.0
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+
+[sub_resource type="FontFile" id="FontFile_pvt17"]
+cache/0/128/0/ascent = 0.0
+cache/0/128/0/descent = 0.0
+cache/0/128/0/underline_position = 0.0
+cache/0/128/0/underline_thickness = 0.0
+cache/0/128/0/scale = 1.0
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+
+[sub_resource type="FontFile" id="FontFile_hj44i"]
+cache/0/128/0/ascent = 0.0
+cache/0/128/0/descent = 0.0
+cache/0/128/0/underline_position = 0.0
+cache/0/128/0/underline_thickness = 0.0
+cache/0/128/0/scale = 1.0
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_s71ng"]
+font_size = 128
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_a1ypl"]
+font_size = 128
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="FontFile" id="FontFile_2gftv"]
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/46/0/ascent = 0.0
+cache/0/46/0/descent = 0.0
+cache/0/46/0/underline_position = 0.0
+cache/0/46/0/underline_thickness = 0.0
+cache/0/46/0/scale = 1.0
+cache/0/66/0/ascent = 0.0
+cache/0/66/0/descent = 0.0
+cache/0/66/0/underline_position = 0.0
+cache/0/66/0/underline_thickness = 0.0
+cache/0/66/0/scale = 1.0
+cache/0/86/0/ascent = 0.0
+cache/0/86/0/descent = 0.0
+cache/0/86/0/underline_position = 0.0
+cache/0/86/0/underline_thickness = 0.0
+cache/0/86/0/scale = 1.0
+cache/0/106/0/ascent = 0.0
+cache/0/106/0/descent = 0.0
+cache/0/106/0/underline_position = 0.0
+cache/0/106/0/underline_thickness = 0.0
+cache/0/106/0/scale = 1.0
+cache/0/126/0/ascent = 0.0
+cache/0/126/0/descent = 0.0
+cache/0/126/0/underline_position = 0.0
+cache/0/126/0/underline_thickness = 0.0
+cache/0/126/0/scale = 1.0
+cache/0/146/0/ascent = 0.0
+cache/0/146/0/descent = 0.0
+cache/0/146/0/underline_position = 0.0
+cache/0/146/0/underline_thickness = 0.0
+cache/0/146/0/scale = 1.0
+cache/0/161/0/ascent = 0.0
+cache/0/161/0/descent = 0.0
+cache/0/161/0/underline_position = 0.0
+cache/0/161/0/underline_thickness = 0.0
+cache/0/161/0/scale = 1.0
+cache/0/181/0/ascent = 0.0
+cache/0/181/0/descent = 0.0
+cache/0/181/0/underline_position = 0.0
+cache/0/181/0/underline_thickness = 0.0
+cache/0/181/0/scale = 1.0
+cache/0/211/0/ascent = 0.0
+cache/0/211/0/descent = 0.0
+cache/0/211/0/underline_position = 0.0
+cache/0/211/0/underline_thickness = 0.0
+cache/0/211/0/scale = 1.0
+cache/0/246/0/ascent = 0.0
+cache/0/246/0/descent = 0.0
+cache/0/246/0/underline_position = 0.0
+cache/0/246/0/underline_thickness = 0.0
+cache/0/246/0/scale = 1.0
+cache/0/276/0/ascent = 0.0
+cache/0/276/0/descent = 0.0
+cache/0/276/0/underline_position = 0.0
+cache/0/276/0/underline_thickness = 0.0
+cache/0/276/0/scale = 1.0
+cache/0/306/0/ascent = 0.0
+cache/0/306/0/descent = 0.0
+cache/0/306/0/underline_position = 0.0
+cache/0/306/0/underline_thickness = 0.0
+cache/0/306/0/scale = 1.0
+cache/0/336/0/ascent = 0.0
+cache/0/336/0/descent = 0.0
+cache/0/336/0/underline_position = 0.0
+cache/0/336/0/underline_thickness = 0.0
+cache/0/336/0/scale = 1.0
+cache/0/371/0/ascent = 0.0
+cache/0/371/0/descent = 0.0
+cache/0/371/0/underline_position = 0.0
+cache/0/371/0/underline_thickness = 0.0
+cache/0/371/0/scale = 1.0
+cache/0/406/0/ascent = 0.0
+cache/0/406/0/descent = 0.0
+cache/0/406/0/underline_position = 0.0
+cache/0/406/0/underline_thickness = 0.0
+cache/0/406/0/scale = 1.0
+cache/0/436/0/ascent = 0.0
+cache/0/436/0/descent = 0.0
+cache/0/436/0/underline_position = 0.0
+cache/0/436/0/underline_thickness = 0.0
+cache/0/436/0/scale = 1.0
+cache/0/466/0/ascent = 0.0
+cache/0/466/0/descent = 0.0
+cache/0/466/0/underline_position = 0.0
+cache/0/466/0/underline_thickness = 0.0
+cache/0/466/0/scale = 1.0
+cache/0/491/0/ascent = 0.0
+cache/0/491/0/descent = 0.0
+cache/0/491/0/underline_position = 0.0
+cache/0/491/0/underline_thickness = 0.0
+cache/0/491/0/scale = 1.0
+cache/0/516/0/ascent = 0.0
+cache/0/516/0/descent = 0.0
+cache/0/516/0/underline_position = 0.0
+cache/0/516/0/underline_thickness = 0.0
+cache/0/516/0/scale = 1.0
+cache/0/536/0/ascent = 0.0
+cache/0/536/0/descent = 0.0
+cache/0/536/0/underline_position = 0.0
+cache/0/536/0/underline_thickness = 0.0
+cache/0/536/0/scale = 1.0
+cache/0/551/0/ascent = 0.0
+cache/0/551/0/descent = 0.0
+cache/0/551/0/underline_position = 0.0
+cache/0/551/0/underline_thickness = 0.0
+cache/0/551/0/scale = 1.0
+cache/0/561/0/ascent = 0.0
+cache/0/561/0/descent = 0.0
+cache/0/561/0/underline_position = 0.0
+cache/0/561/0/underline_thickness = 0.0
+cache/0/561/0/scale = 1.0
+cache/0/571/0/ascent = 0.0
+cache/0/571/0/descent = 0.0
+cache/0/571/0/underline_position = 0.0
+cache/0/571/0/underline_thickness = 0.0
+cache/0/571/0/scale = 1.0
+cache/0/566/0/ascent = 0.0
+cache/0/566/0/descent = 0.0
+cache/0/566/0/underline_position = 0.0
+cache/0/566/0/underline_thickness = 0.0
+cache/0/566/0/scale = 1.0
+cache/0/496/0/ascent = 0.0
+cache/0/496/0/descent = 0.0
+cache/0/496/0/underline_position = 0.0
+cache/0/496/0/underline_thickness = 0.0
+cache/0/496/0/scale = 1.0
+cache/0/476/0/ascent = 0.0
+cache/0/476/0/descent = 0.0
+cache/0/476/0/underline_position = 0.0
+cache/0/476/0/underline_thickness = 0.0
+cache/0/476/0/scale = 1.0
+cache/0/451/0/ascent = 0.0
+cache/0/451/0/descent = 0.0
+cache/0/451/0/underline_position = 0.0
+cache/0/451/0/underline_thickness = 0.0
+cache/0/451/0/scale = 1.0
+cache/0/426/0/ascent = 0.0
+cache/0/426/0/descent = 0.0
+cache/0/426/0/underline_position = 0.0
+cache/0/426/0/underline_thickness = 0.0
+cache/0/426/0/scale = 1.0
+cache/0/386/0/ascent = 0.0
+cache/0/386/0/descent = 0.0
+cache/0/386/0/underline_position = 0.0
+cache/0/386/0/underline_thickness = 0.0
+cache/0/386/0/scale = 1.0
+cache/0/376/0/ascent = 0.0
+cache/0/376/0/descent = 0.0
+cache/0/376/0/underline_position = 0.0
+cache/0/376/0/underline_thickness = 0.0
+cache/0/376/0/scale = 1.0
+cache/0/366/0/ascent = 0.0
+cache/0/366/0/descent = 0.0
+cache/0/366/0/underline_position = 0.0
+cache/0/366/0/underline_thickness = 0.0
+cache/0/366/0/scale = 1.0
+cache/0/361/0/ascent = 0.0
+cache/0/361/0/descent = 0.0
+cache/0/361/0/underline_position = 0.0
+cache/0/361/0/underline_thickness = 0.0
+cache/0/361/0/scale = 1.0
+cache/0/356/0/ascent = 0.0
+cache/0/356/0/descent = 0.0
+cache/0/356/0/underline_position = 0.0
+cache/0/356/0/underline_thickness = 0.0
+cache/0/356/0/scale = 1.0
+cache/0/351/0/ascent = 0.0
+cache/0/351/0/descent = 0.0
+cache/0/351/0/underline_position = 0.0
+cache/0/351/0/underline_thickness = 0.0
+cache/0/351/0/scale = 1.0
+cache/0/346/0/ascent = 0.0
+cache/0/346/0/descent = 0.0
+cache/0/346/0/underline_position = 0.0
+cache/0/346/0/underline_thickness = 0.0
+cache/0/346/0/scale = 1.0
+cache/0/341/0/ascent = 0.0
+cache/0/341/0/descent = 0.0
+cache/0/341/0/underline_position = 0.0
+cache/0/341/0/underline_thickness = 0.0
+cache/0/341/0/scale = 1.0
+cache/0/331/0/ascent = 0.0
+cache/0/331/0/descent = 0.0
+cache/0/331/0/underline_position = 0.0
+cache/0/331/0/underline_thickness = 0.0
+cache/0/331/0/scale = 1.0
+cache/0/321/0/ascent = 0.0
+cache/0/321/0/descent = 0.0
+cache/0/321/0/underline_position = 0.0
+cache/0/321/0/underline_thickness = 0.0
+cache/0/321/0/scale = 1.0
+cache/0/311/0/ascent = 0.0
+cache/0/311/0/descent = 0.0
+cache/0/311/0/underline_position = 0.0
+cache/0/311/0/underline_thickness = 0.0
+cache/0/311/0/scale = 1.0
+cache/0/301/0/ascent = 0.0
+cache/0/301/0/descent = 0.0
+cache/0/301/0/underline_position = 0.0
+cache/0/301/0/underline_thickness = 0.0
+cache/0/301/0/scale = 1.0
+cache/0/316/0/ascent = 0.0
+cache/0/316/0/descent = 0.0
+cache/0/316/0/underline_position = 0.0
+cache/0/316/0/underline_thickness = 0.0
+cache/0/316/0/scale = 1.0
+cache/0/326/0/ascent = 0.0
+cache/0/326/0/descent = 0.0
+cache/0/326/0/underline_position = 0.0
+cache/0/326/0/underline_thickness = 0.0
+cache/0/326/0/scale = 1.0
 
 [node name="choice_menu" type="Node2D"]
+rotation = -0.00222542
+script = ExtResource("1_wfe4v")
 
-[node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(10.055, 10.055)
+[node name="loan_shop" parent="." instance=ExtResource("7_nuigq")]
+position = Vector2(-1920, 0)
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="runner_ui" type="Control" parent="."]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(24.96, 0)
+layout_mode = 3
+anchors_preset = 0
+offset_left = -960.0
+offset_top = -540.0
+offset_right = 2880.0
+offset_bottom = 1620.0
+scale = Vector2(0.5, 0.5)
+
+[node name="runner_data" type="MarginContainer" parent="runner_ui"]
+custom_minimum_size = Vector2(37.465, 0)
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -1080.0
+offset_right = 3840.0
+offset_bottom = 1080.0
+grow_vertical = 2
+
+[node name="data_table" type="HBoxContainer" parent="runner_ui/runner_data"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(20.825, -6.24)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_constants/separation = 5
+script = ExtResource("2_sge07")
+gap_for_the_origin_point_x = 278.997
+starting_origin_point_x = -310.453
+weakness_y_pos = 200.0
+resistance_y_pos = 282.19
+
+[node name="naming" type="VBoxContainer" parent="runner_ui/runner_data/data_table"]
+custom_minimum_size = Vector2(26.55, 6.945)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 10
+
+[node name="name" type="Button" parent="runner_ui/runner_data/data_table/naming"]
 texture_filter = 1
-position = Vector2(-15.5, -32)
-texture = ExtResource("1_2pe0j")
+custom_minimum_size = Vector2(0, 180)
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontFile_ieimv")
+theme_override_font_sizes/font_size = 128
+text = "Name"
 
-[node name="Sprite2D2" type="Sprite2D" parent="."]
+[node name="name3" type="Button" parent="runner_ui/runner_data/data_table/naming"]
 texture_filter = 1
-position = Vector2(-15.5, 0)
-texture = ExtResource("2_v08hl")
+custom_minimum_size = Vector2(0, 180)
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontFile_ieimv")
+theme_override_font_sizes/font_size = 128
+text = "Acceleration"
 
-[node name="Sprite2D3" type="Sprite2D" parent="."]
+[node name="name2" type="Button" parent="runner_ui/runner_data/data_table/naming"]
 texture_filter = 1
-position = Vector2(-15.5, 32)
-texture = ExtResource("3_ijhco")
+custom_minimum_size = Vector2(0, 180)
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontFile_ieimv")
+theme_override_font_sizes/font_size = 128
+text = "Speed"
+
+[node name="Button5" type="Button" parent="runner_ui/runner_data/data_table/naming"]
+texture_filter = 1
+custom_minimum_size = Vector2(0, 180)
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontFile_ieimv")
+theme_override_font_sizes/font_size = 128
+text = "S. Acceleration"
+
+[node name="Button6" type="Button" parent="runner_ui/runner_data/data_table/naming"]
+texture_filter = 1
+custom_minimum_size = Vector2(0, 180)
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontFile_ieimv")
+theme_override_font_sizes/font_size = 128
+text = "Strength"
+
+[node name="Button7" type="Button" parent="runner_ui/runner_data/data_table/naming"]
+texture_filter = 1
+custom_minimum_size = Vector2(0, 180)
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontFile_ieimv")
+theme_override_font_sizes/font_size = 128
+text = "Health"
+
+[node name="Button8" type="Button" parent="runner_ui/runner_data/data_table/naming"]
+texture_filter = 1
+custom_minimum_size = Vector2(0, 180)
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontFile_ieimv")
+theme_override_font_sizes/font_size = 128
+text = "weaknesses"
+
+[node name="Button9" type="Button" parent="runner_ui/runner_data/data_table/naming"]
+texture_filter = 1
+custom_minimum_size = Vector2(0, 180)
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontFile_ieimv")
+theme_override_font_sizes/font_size = 128
+text = "resistance"
+
+[node name="1" type="VBoxContainer" parent="runner_ui/runner_data/data_table"]
+custom_minimum_size = Vector2(26.55, 6.945)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 10
+
+[node name="Label" type="Label" parent="runner_ui/runner_data/data_table/1"]
+texture_filter = 1
+custom_minimum_size = Vector2(65.495, 180)
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontFile_rrap1")
+theme_override_font_sizes/font_size = 128
+text = "z"
+label_settings = SubResource("LabelSettings_40o44")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 1
+
+[node name="Label2" type="Label" parent="runner_ui/runner_data/data_table/1"]
+texture_filter = 1
+custom_minimum_size = Vector2(2, 180)
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontFile_rrap1")
+theme_override_font_sizes/font_size = 128
+text = "24"
+label_settings = SubResource("LabelSettings_40o44")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label3" type="Label" parent="runner_ui/runner_data/data_table/1"]
+texture_filter = 1
+custom_minimum_size = Vector2(65.495, 180)
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontFile_rrap1")
+theme_override_font_sizes/font_size = 128
+text = "z"
+label_settings = SubResource("LabelSettings_40o44")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label4" type="Label" parent="runner_ui/runner_data/data_table/1"]
+texture_filter = 1
+custom_minimum_size = Vector2(65.495, 180)
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontFile_rrap1")
+theme_override_font_sizes/font_size = 128
+text = "24"
+label_settings = SubResource("LabelSettings_40o44")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label5" type="Label" parent="runner_ui/runner_data/data_table/1"]
+texture_filter = 1
+custom_minimum_size = Vector2(65.495, 180)
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontFile_rrap1")
+theme_override_font_sizes/font_size = 128
+text = "z"
+label_settings = SubResource("LabelSettings_40o44")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label6" type="Label" parent="runner_ui/runner_data/data_table/1"]
+texture_filter = 1
+custom_minimum_size = Vector2(65.495, 180)
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontFile_rrap1")
+theme_override_font_sizes/font_size = 128
+text = "24"
+label_settings = SubResource("LabelSettings_40o44")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="w1" type="Label" parent="runner_ui/runner_data/data_table/1"]
+texture_filter = 1
+custom_minimum_size = Vector2(65.495, 180)
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontFile_rrap1")
+theme_override_font_sizes/font_size = 128
+text = "z"
+label_settings = SubResource("LabelSettings_40o44")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="r1" type="Label" parent="runner_ui/runner_data/data_table/1"]
+texture_filter = 1
+custom_minimum_size = Vector2(65.495, 180)
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontFile_rrap1")
+theme_override_font_sizes/font_size = 128
+text = "24"
+label_settings = SubResource("LabelSettings_40o44")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="confirm" type="Button" parent="runner_ui/runner_data/data_table/1"]
+texture_filter = 1
+custom_minimum_size = Vector2(65.495, 177.173)
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontFile_rntmy")
+theme_override_font_sizes/font_size = 128
+text = "confirm"
+script = ExtResource("3_ejq5b")
+
+[node name="2" type="VBoxContainer" parent="runner_ui/runner_data/data_table"]
+custom_minimum_size = Vector2(26.55, 6.945)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 10
+
+[node name="Label" type="Label" parent="runner_ui/runner_data/data_table/2"]
+texture_filter = 1
+custom_minimum_size = Vector2(0, 180)
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontFile_pvt17")
+theme_override_font_sizes/font_size = 128
+text = "z"
+label_settings = SubResource("LabelSettings_40o44")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 1
+
+[node name="Label2" type="Label" parent="runner_ui/runner_data/data_table/2"]
+texture_filter = 1
+custom_minimum_size = Vector2(0, 180)
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontFile_pvt17")
+theme_override_font_sizes/font_size = 128
+text = "z"
+label_settings = SubResource("LabelSettings_40o44")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label3" type="Label" parent="runner_ui/runner_data/data_table/2"]
+texture_filter = 1
+custom_minimum_size = Vector2(0, 180)
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontFile_pvt17")
+theme_override_font_sizes/font_size = 128
+text = "z"
+label_settings = SubResource("LabelSettings_40o44")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label4" type="Label" parent="runner_ui/runner_data/data_table/2"]
+texture_filter = 1
+custom_minimum_size = Vector2(0, 180)
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontFile_pvt17")
+theme_override_font_sizes/font_size = 128
+text = "24"
+label_settings = SubResource("LabelSettings_40o44")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label5" type="Label" parent="runner_ui/runner_data/data_table/2"]
+texture_filter = 1
+custom_minimum_size = Vector2(0, 180)
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontFile_pvt17")
+theme_override_font_sizes/font_size = 128
+text = "z"
+label_settings = SubResource("LabelSettings_40o44")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label6" type="Label" parent="runner_ui/runner_data/data_table/2"]
+texture_filter = 1
+custom_minimum_size = Vector2(0, 180)
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontFile_pvt17")
+theme_override_font_sizes/font_size = 128
+text = "24"
+label_settings = SubResource("LabelSettings_40o44")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="w2" type="Label" parent="runner_ui/runner_data/data_table/2"]
+texture_filter = 1
+custom_minimum_size = Vector2(0, 180)
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontFile_pvt17")
+theme_override_font_sizes/font_size = 128
+text = "z"
+label_settings = SubResource("LabelSettings_40o44")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="r2" type="Label" parent="runner_ui/runner_data/data_table/2"]
+texture_filter = 1
+custom_minimum_size = Vector2(0, 180)
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontFile_pvt17")
+theme_override_font_sizes/font_size = 128
+text = "24"
+label_settings = SubResource("LabelSettings_40o44")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="confirm" type="Button" parent="runner_ui/runner_data/data_table/2"]
+texture_filter = 1
+custom_minimum_size = Vector2(0, 177.173)
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontFile_rntmy")
+theme_override_font_sizes/font_size = 128
+text = "confirm"
+script = ExtResource("3_ejq5b")
+
+[node name="3" type="VBoxContainer" parent="runner_ui/runner_data/data_table"]
+custom_minimum_size = Vector2(26.55, 6.945)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 10
+
+[node name="Label" type="Label" parent="runner_ui/runner_data/data_table/3"]
+texture_filter = 1
+custom_minimum_size = Vector2(0, 180)
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontFile_hj44i")
+theme_override_font_sizes/font_size = 128
+text = "z"
+label_settings = SubResource("LabelSettings_s71ng")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 1
+
+[node name="Label2" type="Label" parent="runner_ui/runner_data/data_table/3"]
+texture_filter = 1
+custom_minimum_size = Vector2(0, 180)
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontFile_hj44i")
+theme_override_font_sizes/font_size = 128
+text = "24"
+label_settings = SubResource("LabelSettings_a1ypl")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label3" type="Label" parent="runner_ui/runner_data/data_table/3"]
+texture_filter = 1
+custom_minimum_size = Vector2(0, 180)
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontFile_hj44i")
+theme_override_font_sizes/font_size = 128
+text = "z"
+label_settings = SubResource("LabelSettings_s71ng")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label4" type="Label" parent="runner_ui/runner_data/data_table/3"]
+texture_filter = 1
+custom_minimum_size = Vector2(0, 180)
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontFile_hj44i")
+theme_override_font_sizes/font_size = 128
+text = "24"
+label_settings = SubResource("LabelSettings_a1ypl")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label5" type="Label" parent="runner_ui/runner_data/data_table/3"]
+texture_filter = 1
+custom_minimum_size = Vector2(0, 180)
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontFile_hj44i")
+theme_override_font_sizes/font_size = 128
+text = "z"
+label_settings = SubResource("LabelSettings_s71ng")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label6" type="Label" parent="runner_ui/runner_data/data_table/3"]
+texture_filter = 1
+custom_minimum_size = Vector2(0, 180)
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontFile_hj44i")
+theme_override_font_sizes/font_size = 128
+text = "24"
+label_settings = SubResource("LabelSettings_a1ypl")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="w3" type="Label" parent="runner_ui/runner_data/data_table/3"]
+texture_filter = 1
+custom_minimum_size = Vector2(0, 180)
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontFile_hj44i")
+theme_override_font_sizes/font_size = 128
+text = "f"
+label_settings = SubResource("LabelSettings_s71ng")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="r3" type="Label" parent="runner_ui/runner_data/data_table/3"]
+texture_filter = 1
+custom_minimum_size = Vector2(0, 180)
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontFile_hj44i")
+theme_override_font_sizes/font_size = 128
+text = "24"
+label_settings = SubResource("LabelSettings_a1ypl")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="confirm" type="Button" parent="runner_ui/runner_data/data_table/3"]
+texture_filter = 1
+custom_minimum_size = Vector2(0, 177.173)
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontFile_rntmy")
+theme_override_font_sizes/font_size = 128
+text = "confirm"
+script = ExtResource("3_ejq5b")
+
+[node name="next_user" type="Button" parent="runner_ui"]
+layout_mode = 0
+offset_left = 2705.44
+offset_top = -45.8748
+offset_right = 4185.44
+offset_bottom = 449.125
+scale = Vector2(0.35, 0.35)
+theme_override_fonts/font = SubResource("FontFile_2gftv")
+theme_override_font_sizes/font_size = 366
+text = "next user"
+script = ExtResource("4_0e1hg")
+
+[node name="next_scene_to_field" type="Button" parent="runner_ui"]
+layout_mode = 2
+offset_left = 3006.67
+offset_top = 149.796
+offset_right = 6399.67
+offset_bottom = 248.796
+script = ExtResource("4_m0162")
+
+[node name="go_to_loan" type="Button" parent="."]
+offset_left = 494.831
+offset_top = -372.9
+offset_right = 609.831
+offset_bottom = -331.9
+scale = Vector2(2.3, 2.3)
+text = "LOAN"
+script = ExtResource("7_352m5")
+
+[node name="main_camera" type="Camera2D" parent="."]
+unique_name_in_owner = true
+
+[node name="field_ui" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -963.204
+offset_top = 539.858
+offset_right = 2876.8
+offset_bottom = 2699.86
+scale = Vector2(0.5, 0.5)
+
+[node name="field_data" type="MarginContainer" parent="field_ui"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -2140.5
+offset_top = -904.0
+offset_right = 2140.5
+offset_bottom = 904.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="field_data_table" type="VBoxContainer" parent="field_ui/field_data"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 200
+script = ExtResource("6_1sc1i")
+
+[node name="naming" type="HBoxContainer" parent="field_ui/field_data/field_data_table"]
+layout_mode = 2
+theme_override_constants/separation = 35
+
+[node name="name" type="Button" parent="field_ui/field_data/field_data_table/naming"]
+texture_filter = 1
+custom_minimum_size = Vector2(1474.75, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_pvhkl")
+theme_override_font_sizes/font_size = 128
+text = "Name"
+
+[node name="name3" type="Button" parent="field_ui/field_data/field_data_table/naming"]
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_pvhkl")
+theme_override_font_sizes/font_size = 128
+text = "Weather"
+
+[node name="name2" type="Button" parent="field_ui/field_data/field_data_table/naming"]
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_pvhkl")
+theme_override_font_sizes/font_size = 128
+text = "Length"
+
+[node name="Button5" type="Button" parent="field_ui/field_data/field_data_table/naming"]
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_pvhkl")
+theme_override_font_sizes/font_size = 128
+text = "Obstacle Ds."
+
+[node name="1" type="HBoxContainer" parent="field_ui/field_data/field_data_table"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_constants/separation = 35
+alignment = 1
+
+[node name="Label" type="Label" parent="field_ui/field_data/field_data_table/1"]
+texture_filter = 1
+custom_minimum_size = Vector2(1474.75, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_pvhkl")
+theme_override_font_sizes/font_size = 128
+text = "weee"
+label_settings = SubResource("LabelSettings_s71ng")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="field_ui/field_data/field_data_table/1"]
+texture_filter = 1
+custom_minimum_size = Vector2(539, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_pvhkl")
+theme_override_font_sizes/font_size = 128
+text = "Oil"
+label_settings = SubResource("LabelSettings_a1ypl")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label3" type="Label" parent="field_ui/field_data/field_data_table/1"]
+texture_filter = 1
+custom_minimum_size = Vector2(450, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_pvhkl")
+theme_override_font_sizes/font_size = 128
+text = "z"
+label_settings = SubResource("LabelSettings_s71ng")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label4" type="Label" parent="field_ui/field_data/field_data_table/1"]
+texture_filter = 1
+custom_minimum_size = Vector2(791, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_pvhkl")
+theme_override_font_sizes/font_size = 128
+text = "24"
+label_settings = SubResource("LabelSettings_a1ypl")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="confirm" type="Button" parent="field_ui/field_data/field_data_table/1"]
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_pvhkl")
+theme_override_font_sizes/font_size = 128
+text = "confirm"
+script = ExtResource("7_bac6e")
+
+[node name="2" type="HBoxContainer" parent="field_ui/field_data/field_data_table"]
+layout_mode = 2
+theme_override_constants/separation = 35
+
+[node name="Label" type="Label" parent="field_ui/field_data/field_data_table/2"]
+texture_filter = 1
+custom_minimum_size = Vector2(1474.75, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_pvhkl")
+theme_override_font_sizes/font_size = 128
+text = "weee"
+label_settings = SubResource("LabelSettings_s71ng")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="field_ui/field_data/field_data_table/2"]
+texture_filter = 1
+custom_minimum_size = Vector2(539, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_pvhkl")
+theme_override_font_sizes/font_size = 128
+text = "Oil"
+label_settings = SubResource("LabelSettings_a1ypl")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label3" type="Label" parent="field_ui/field_data/field_data_table/2"]
+texture_filter = 1
+custom_minimum_size = Vector2(450, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_pvhkl")
+theme_override_font_sizes/font_size = 128
+text = "z"
+label_settings = SubResource("LabelSettings_s71ng")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label4" type="Label" parent="field_ui/field_data/field_data_table/2"]
+texture_filter = 1
+custom_minimum_size = Vector2(791, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_pvhkl")
+theme_override_font_sizes/font_size = 128
+text = "24"
+label_settings = SubResource("LabelSettings_a1ypl")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="confirm" type="Button" parent="field_ui/field_data/field_data_table/2"]
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_pvhkl")
+theme_override_font_sizes/font_size = 128
+text = "confirm"
+script = ExtResource("7_bac6e")
+
+[node name="3" type="HBoxContainer" parent="field_ui/field_data/field_data_table"]
+layout_mode = 2
+theme_override_constants/separation = 35
+
+[node name="Label" type="Label" parent="field_ui/field_data/field_data_table/3"]
+texture_filter = 1
+custom_minimum_size = Vector2(1474.75, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_pvhkl")
+theme_override_font_sizes/font_size = 128
+text = "weee"
+label_settings = SubResource("LabelSettings_s71ng")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="field_ui/field_data/field_data_table/3"]
+texture_filter = 1
+custom_minimum_size = Vector2(539, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_pvhkl")
+theme_override_font_sizes/font_size = 128
+text = "Oil"
+label_settings = SubResource("LabelSettings_a1ypl")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label3" type="Label" parent="field_ui/field_data/field_data_table/3"]
+texture_filter = 1
+custom_minimum_size = Vector2(450, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_pvhkl")
+theme_override_font_sizes/font_size = 128
+text = "z"
+label_settings = SubResource("LabelSettings_s71ng")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label4" type="Label" parent="field_ui/field_data/field_data_table/3"]
+texture_filter = 1
+custom_minimum_size = Vector2(791, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_pvhkl")
+theme_override_font_sizes/font_size = 128
+text = "24"
+label_settings = SubResource("LabelSettings_a1ypl")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="confirm" type="Button" parent="field_ui/field_data/field_data_table/3"]
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_pvhkl")
+theme_override_font_sizes/font_size = 128
+text = "confirm"
+script = ExtResource("7_bac6e")
+
+[node name="power_card_shop" parent="." instance=ExtResource("12_4248i")]
+position = Vector2(-3840, 0)
+
+[node name="runner_specification" type="CanvasLayer" parent="."]
+visible = false
+offset = Vector2(978.645, 512.865)
+transform = Transform2D(1, 0, 0, 1, 978.645, 512.865)
+script = ExtResource("13_2e70t")
+
+[node name="r1" type="Button" parent="runner_specification"]
+texture_filter = 1
+custom_minimum_size = Vector2(0, 177.173)
+offset_left = 708.355
+offset_top = -400.0
+offset_right = 1148.35
+offset_bottom = -220.0
+scale = Vector2(0.5, 0.5)
+theme_override_fonts/font = SubResource("FontFile_rntmy")
+theme_override_font_sizes/font_size = 128
+text = "1"
+
+[node name="r2" type="Button" parent="runner_specification"]
+texture_filter = 1
+custom_minimum_size = Vector2(0, 177.173)
+offset_left = 708.355
+offset_top = -300.0
+offset_right = 1148.35
+offset_bottom = -120.0
+scale = Vector2(0.5, 0.5)
+theme_override_fonts/font = SubResource("FontFile_rntmy")
+theme_override_font_sizes/font_size = 128
+text = "2"
+
+[node name="r3" type="Button" parent="runner_specification"]
+texture_filter = 1
+custom_minimum_size = Vector2(0, 177.173)
+offset_left = 708.355
+offset_top = -200.0
+offset_right = 1148.35
+offset_bottom = -20.0
+scale = Vector2(0.5, 0.5)
+theme_override_fonts/font = SubResource("FontFile_rntmy")
+theme_override_font_sizes/font_size = 128
+text = "3"
+
+[node name="apply" type="Button" parent="runner_specification"]
+texture_filter = 1
+custom_minimum_size = Vector2(0, 177.173)
+offset_left = 711.355
+offset_top = -94.865
+offset_right = 1151.35
+offset_bottom = 85.135
+scale = Vector2(0.5, 0.5)
+theme_override_fonts/font = SubResource("FontFile_rntmy")
+theme_override_font_sizes/font_size = 128
+text = "apply"
+
+[node name="obstacle_shop" parent="." instance=ExtResource("14_15qsb")]
+position = Vector2(-5760, 0)
+
+[node name="climate_token_shop" parent="." instance=ExtResource("15_fxs43")]
+position = Vector2(-7680, 0)
+
+[node name="go_to_loan2" type="Button" parent="."]
+offset_left = 605.261
+offset_top = 1231.35
+offset_right = 720.261
+offset_bottom = 1272.35
+scale = Vector2(2.3, 2.3)
+text = "LOAN"
+script = ExtResource("5_pvkbt")
+
+[connection signal="pressed" from="runner_ui/runner_data/data_table/1/confirm" to="runner_ui/runner_data/data_table/1/confirm" method="_on_pressed"]
+[connection signal="pressed" from="runner_ui/runner_data/data_table/2/confirm" to="runner_ui/runner_data/data_table/2/confirm" method="_on_pressed"]
+[connection signal="pressed" from="runner_ui/runner_data/data_table/3/confirm" to="runner_ui/runner_data/data_table/3/confirm" method="_on_pressed"]
+[connection signal="pressed" from="runner_ui/next_user" to="runner_ui/next_user" method="_on_pressed"]
+[connection signal="pressed" from="runner_ui/next_scene_to_field" to="runner_ui/next_scene_to_field" method="_on_pressed"]
+[connection signal="pressed" from="go_to_loan" to="go_to_loan" method="_on_pressed"]
+[connection signal="pressed" from="field_ui/field_data/field_data_table/1/confirm" to="field_ui/field_data/field_data_table/1/confirm" method="_on_pressed"]
+[connection signal="pressed" from="field_ui/field_data/field_data_table/2/confirm" to="field_ui/field_data/field_data_table/2/confirm" method="_on_pressed"]
+[connection signal="pressed" from="field_ui/field_data/field_data_table/3/confirm" to="field_ui/field_data/field_data_table/3/confirm" method="_on_pressed"]
+[connection signal="pressed" from="runner_specification/r1" to="runner_specification" method="_on_r_1_pressed"]
+[connection signal="pressed" from="runner_specification/r2" to="runner_specification" method="_on_r_2_pressed"]
+[connection signal="pressed" from="runner_specification/r3" to="runner_specification" method="_on_r_3_pressed"]
+[connection signal="pressed" from="runner_specification/apply" to="runner_specification" method="_on_apply_pressed"]
+[connection signal="pressed" from="go_to_loan2" to="go_to_loan2" method="_on_pressed"]

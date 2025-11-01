@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://di5a8e5ijjry4"]
+
+[ext_resource type="Script" path="res://scenes/post_simulation_stats.gd" id="1_6oggn"]
+[ext_resource type="Script" path="res://scenes/all_progress_huds.gd" id="2_tggxf"]
+[ext_resource type="Script" path="res://scenes/switch_to_shop.gd" id="3_lc1e7"]
+
+[node name="PostSimulationStats" type="Node2D"]
+script = ExtResource("1_6oggn")
+duration_of_held_cash_animation = 1
+animation_type = 4
+
+[node name="all_progress_huds" type="Node2D" parent="."]
+position = Vector2(0, 443.17)
+script = ExtResource("2_tggxf")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="switch_to_shop" type="Button" parent="."]
+offset_left = 571.0
+offset_top = 311.0
+offset_right = 686.0
+offset_bottom = 352.0
+scale = Vector2(2.3, 2.3)
+text = "LOAN"
+script = ExtResource("3_lc1e7")
+
+[connection signal="pressed" from="switch_to_shop" to="switch_to_shop" method="_on_pressed"]

@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://12wna1st82bg"]
+
+[ext_resource type="Script" path="res://shop_sections/button_scripts/climate_tokens.gd" id="1_qvk6h"]
+[ext_resource type="Texture2D" uid="uid://cd18qar2173yr" path="res://art/shops/Sprite-0001.png" id="2_n5pqg"]
+[ext_resource type="Script" path="res://shop_sections/button_scripts/all_tokens.gd" id="3_a1ecl"]
+
+[node name="climate_token_shop" type="Node2D"]
+script = ExtResource("1_qvk6h")
+
+[node name="silhouette2" type="Sprite2D" parent="."]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(1, 0)
+scale = Vector2(20, 20)
+texture = ExtResource("2_n5pqg")
+
+[node name="all_tokens" type="Node2D" parent="."]
+position = Vector2(0, 300)
+script = ExtResource("3_a1ecl")

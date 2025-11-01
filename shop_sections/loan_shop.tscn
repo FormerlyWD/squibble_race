@@ -1,0 +1,108 @@
+[gd_scene load_steps=8 format=3 uid="uid://drynghjlg35py"]
+
+[ext_resource type="Script" path="res://shop_sections/button_scripts/loan_shop.gd" id="1_3gsia"]
+[ext_resource type="Texture2D" uid="uid://cd18qar2173yr" path="res://art/shops/Sprite-0001.png" id="1_tegbv"]
+[ext_resource type="Script" path="res://shop_sections/button_scripts/get_loan.gd" id="2_aqks5"]
+[ext_resource type="Script" path="res://shop_sections/button_scripts/1x_debt.gd" id="3_leb04"]
+
+[sub_resource type="FontFile" id="FontFile_ufmqj"]
+subpixel_positioning = 0
+msdf_pixel_range = 14
+msdf_size = 128
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/128/0/ascent = 0.0
+cache/0/128/0/descent = 0.0
+cache/0/128/0/underline_position = 0.0
+cache/0/128/0/underline_thickness = 0.0
+cache/0/128/0/scale = 1.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_4hkf5"]
+font_size = 128
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="FontFile" id="FontFile_oj4dm"]
+subpixel_positioning = 0
+msdf_pixel_range = 14
+msdf_size = 128
+cache/0/128/0/ascent = 0.0
+cache/0/128/0/descent = 0.0
+cache/0/128/0/underline_position = 0.0
+cache/0/128/0/underline_thickness = 0.0
+cache/0/128/0/scale = 1.0
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+
+[node name="LoanShop" type="Node2D"]
+script = ExtResource("1_3gsia")
+
+[node name="silhouette2" type="Sprite2D" parent="."]
+modulate = Color(0, 0, 0, 1)
+scale = Vector2(20, 20)
+texture = ExtResource("1_tegbv")
+
+[node name="Label6" type="Label" parent="."]
+texture_filter = 1
+custom_minimum_size = Vector2(0, 180)
+offset_left = -835.0
+offset_top = -473.0
+offset_right = -88.0
+offset_bottom = -293.0
+scale = Vector2(0.5, 0.5)
+theme_override_fonts/font = SubResource("FontFile_ufmqj")
+theme_override_font_sizes/font_size = 128
+text = "Choose debt:"
+label_settings = SubResource("LabelSettings_4hkf5")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="2x DEBT" type="Button" parent="."]
+texture_filter = 1
+custom_minimum_size = Vector2(0, 150.353)
+offset_left = -834.0
+offset_top = -372.0
+offset_right = -123.0
+offset_bottom = -192.0
+scale = Vector2(0.5, 0.5)
+theme_override_fonts/font = SubResource("FontFile_oj4dm")
+theme_override_font_sizes/font_size = 128
+text = "1000$"
+script = ExtResource("3_leb04")
+debt_amount = 1000
+
+[node name="1X DEBT" type="Button" parent="."]
+texture_filter = 1
+custom_minimum_size = Vector2(0, 150.353)
+offset_left = -834.0
+offset_top = -269.0
+offset_right = -123.0
+offset_bottom = -89.0
+scale = Vector2(0.5, 0.5)
+theme_override_fonts/font = SubResource("FontFile_oj4dm")
+theme_override_font_sizes/font_size = 128
+text = "500$"
+script = ExtResource("3_leb04")
+debt_amount = 500
+
+[node name="get loan" type="Button" parent="."]
+texture_filter = 1
+custom_minimum_size = Vector2(0, 150.353)
+offset_left = 367.0
+offset_top = 404.0
+offset_right = 1140.0
+offset_bottom = 584.0
+scale = Vector2(0.5, 0.5)
+theme_override_fonts/font = SubResource("FontFile_oj4dm")
+theme_override_font_sizes/font_size = 128
+text = "Repay Debt ()"
+script = ExtResource("2_aqks5")
+
+[connection signal="pressed" from="2x DEBT" to="2x DEBT" method="_on_pressed"]
+[connection signal="pressed" from="1X DEBT" to="1X DEBT" method="_on_pressed"]
+[connection signal="pressed" from="get loan" to="get loan" method="_on_pressed"]

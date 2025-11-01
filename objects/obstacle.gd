@@ -1,9 +1,22 @@
 extends CharacterBody2D
 
-@export var strength:float = 3
+@export var strength:int = 3
+@export var damage:int = 3
+@export var fragile:bool = false
+@export var effect:Dictionary = {
+	"max":300,
+	"min":100,
+	"expression":"x+15*d",
+	"state":"normal",
+	"inverse_expression":"0*x*d",
+	"targeted_stat":"speed",
+	"value":101
+	}
 @onready var applied_force:float = 0
 @onready var force_modifier:float = 5
-@onready var obstacle_type:String
+
+var obstacle_type:String = "Clear"
+
 @onready var label:String = "obstacle"
 
 enum State {
@@ -14,11 +27,18 @@ enum State {
 
 func _ready() -> void:
 	pass
-	
+
+func change_image(new_texture:Texture2D):
+	$Sprite2D.texture = new_texture
 func throw():
-	current_s = State.THROWN
+	if fragile:
+		current_s = State.STATIC
+		delete()
+	else:
+		current_s = State.THROWN
 
-
+func delete():
+	queue_free()
 func reset_properties():
 	current_s = State.STATIC
 	applied_force = 0

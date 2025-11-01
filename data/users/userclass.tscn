@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dcclxpivufrme"]
+
+[ext_resource type="Script" path="res://data/users/userclass.gd" id="1_gijcs"]
+
+[node name="Userclass" type="Node"]
+script = ExtResource("1_gijcs")

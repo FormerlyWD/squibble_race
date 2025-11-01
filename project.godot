@@ -18,22 +18,24 @@ config/icon="res://icon.svg"
 [autoload]
 
 random="*res://scripts/random.gd"
-info="res://scripts/runner_information.gd"
 ref="*res://scripts/refs.gd"
-runner="*res://runner/runner_info.tscn"
-settings="*res://art/settings.gd"
+runner_info="*res://runner/runner_info.tscn"
+settings="*res://scripts/settings.gd"
+user_data="*res://data/users/global/user_data.tscn"
+field_info="*res://scripts/field_info.gd"
+popup="*res://popups/base_popup.tscn"
+game_info="*res://data/game_info.tscn"
 
 [display]
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
-window/size/mode=3
-window/size/initial_position_type=0
-window/size/initial_position=Vector2i(2995, 0)
+window/size/initial_position=Vector2i(0, -9075)
 window/size/resizable=false
 window/stretch/mode="viewport"
 window/stretch/aspect="expand"
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="mobile"

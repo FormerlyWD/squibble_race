@@ -1,0 +1,116 @@
+[gd_scene load_steps=5 format=3 uid="uid://do2ia2f1p6q3p"]
+
+[ext_resource type="Script" path="res://scenes/progress_hud/post_simulation_progress_hud.gd" id="1_7g7un"]
+
+[sub_resource type="FontFile" id="FontFile_irkga"]
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/128/0/ascent = 0.0
+cache/0/128/0/descent = 0.0
+cache/0/128/0/underline_position = 0.0
+cache/0/128/0/underline_thickness = 0.0
+cache/0/128/0/scale = 1.0
+
+[sub_resource type="FontFile" id="FontFile_k1025"]
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/128/0/ascent = 0.0
+cache/0/128/0/descent = 0.0
+cache/0/128/0/underline_position = 0.0
+cache/0/128/0/underline_thickness = 0.0
+cache/0/128/0/scale = 1.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_8ta6l"]
+font_size = 128
+outline_color = Color(0, 0, 0, 1)
+
+[node name="post_simulation_progress_hud" type="Node2D"]
+script = ExtResource("1_7g7un")
+
+[node name="cash_bar" type="ProgressBar" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -132.0
+offset_top = -683.0
+offset_right = 401.0
+offset_bottom = 689.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.5, 0.5)
+fill_mode = 3
+show_percentage = false
+
+[node name="Button9" type="Button" parent="."]
+texture_filter = 1
+custom_minimum_size = Vector2(0, 180)
+offset_left = 135.0
+offset_top = -774.0
+offset_right = 438.0
+offset_bottom = -594.0
+scale = Vector2(0.5, 0.5)
+theme_override_fonts/font = SubResource("FontFile_irkga")
+theme_override_font_sizes/font_size = 128
+text = "debt"
+
+[node name="Button10" type="Button" parent="."]
+texture_filter = 1
+custom_minimum_size = Vector2(0, 180)
+offset_left = 152.0
+offset_top = -874.0
+offset_right = 411.0
+offset_bottom = -694.0
+scale = Vector2(0.5, 0.5)
+theme_override_fonts/font = SubResource("FontFile_irkga")
+theme_override_font_sizes/font_size = 128
+text = "cash"
+
+[node name="Button11" type="Button" parent="."]
+texture_filter = 1
+custom_minimum_size = Vector2(0, 180)
+offset_left = -132.515
+offset_top = -974.0
+offset_right = 433.485
+offset_bottom = -794.0
+scale = Vector2(0.5, 0.5)
+theme_override_fonts/font = SubResource("FontFile_irkga")
+theme_override_font_sizes/font_size = 128
+text = "hi"
+
+[node name="cash" type="Label" parent="."]
+texture_filter = 1
+custom_minimum_size = Vector2(65.495, 180)
+offset_left = -132.515
+offset_top = -874.0
+offset_right = 433.485
+offset_bottom = -694.0
+scale = Vector2(0.5, 0.5)
+theme_override_fonts/font = SubResource("FontFile_k1025")
+theme_override_font_sizes/font_size = 128
+text = "24"
+label_settings = SubResource("LabelSettings_8ta6l")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="debt" type="Label" parent="."]
+texture_filter = 1
+custom_minimum_size = Vector2(65.495, 180)
+offset_left = -132.515
+offset_top = -774.0
+offset_right = 433.485
+offset_bottom = -594.0
+scale = Vector2(0.5, 0.5)
+theme_override_fonts/font = SubResource("FontFile_k1025")
+theme_override_font_sizes/font_size = 128
+text = "24"
+label_settings = SubResource("LabelSettings_8ta6l")
+horizontal_alignment = 1
+vertical_alignment = 1
