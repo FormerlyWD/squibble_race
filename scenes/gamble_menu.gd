@@ -18,6 +18,7 @@ func round_ready():
 
 	on_next_user() # burst
 func on_next_user():
+	
 	%user_data_panel.format_panel()
 	%data_table.generate_dictionary()
 	%field_data_table.generate_dictionary()
@@ -25,16 +26,23 @@ func on_next_user():
 	item_type_to_dedicated_shop["power_card"].reset(3)
 	item_type_to_dedicated_shop["climate_token"].reset()
 func parsed_all_users():
+	
+	
+	
 	field_info.apply_field_data(%field_data_table.selected_field_pool.pick_random())
+	
 	game_info.change_scene(game_info.Location.SIMULATION)
 func _ready() -> void:
 	
-
+	
+	user_data.current_user = user_data.get_controller()
+	
 	user_data.next_user.connect(on_next_user)
 	user_data.finished_user_cycle.connect(parsed_all_users)
 	game_info.pick_data()
-	game_ready()
 	user_data.emit_signal("next_user")
+	game_ready()
+	
 	
 func dupelicate_item_type_matching():
 	user_data.procession.item_type_to_dedicated_shop = item_type_to_dedicated_shop.duplicate()

@@ -9,6 +9,7 @@
 
 [node name="user" type="Node"]
 script = ExtResource("1_vvg6l")
+all_selectable_usernames = Array[String](["ae", "fh", "ax"])
 
 [node name="user_class" parent="." instance=ExtResource("1_oekmf")]
 

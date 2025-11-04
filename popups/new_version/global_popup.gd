@@ -30,7 +30,7 @@ func popup_fade_in(initial_pos:Node2D,final_pos:Node2D, more_info_stacking_direc
 	if not visibillity_tween == null: visibillity_tween.kill()
 	if not position_tween == null: position_tween.kill()
 	
-	print("it happens")
+
 	primary_popup_name.text = user_data.user_mouse.hovered_item.item_name
 	primary_popup_description.text = user_data.user_mouse.hovered_item.description
 	

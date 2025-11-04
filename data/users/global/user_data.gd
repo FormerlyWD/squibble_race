@@ -12,14 +12,13 @@ signal new_runner_selection(runner_number:int)
 
 @onready var user_dict:Dictionary 
 
-@onready var all_selectable_usernames:Array[String] = [
-	"Waleed",
+@export var all_selectable_usernames:Array[String] = [
+	"ae",
 	"Someone",
 	"Someone else"
 ]
 
-func _ready() -> void:
-	next_user.connect(control.next_user)
+
 func get_controller() -> user:
 	return user_data.user_dict[user_data.control.assigned_controller]
 
