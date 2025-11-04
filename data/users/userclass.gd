@@ -7,4 +7,4 @@ class_name user
 @export var debt:int
 @export var icon:Image
 @export var user_name:String
-@export var betted_runner_number:int
+@export var betted_runner_number:int = 0

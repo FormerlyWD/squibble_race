@@ -2,7 +2,7 @@ extends Node2D
 
 @onready var item_type:String = "obstacle"
 @onready var item_pool:Dictionary = {
-		"Speedy": {
+		"Speed Potion": {
 			"effect":{"min":0,
 				"max":300,
 				"expression":"x+1*d",

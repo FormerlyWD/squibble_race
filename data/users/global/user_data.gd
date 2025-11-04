@@ -2,6 +2,7 @@ extends Node
 
 signal finished_user_cycle
 signal next_user
+signal new_runner_selection(runner_number:int)
 @onready var user_collection:Node = %user_collection_and_generation
 @onready var user_class:Node = $user_class
 @onready var user_mouse:Node = $user_mouse
@@ -16,6 +17,9 @@ signal next_user
 	"Someone",
 	"Someone else"
 ]
+
+func _ready() -> void:
+	next_user.connect(control.next_user)
 func get_controller() -> user:
 	return user_data.user_dict[user_data.control.assigned_controller]
 

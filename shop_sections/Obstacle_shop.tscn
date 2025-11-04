@@ -16,8 +16,8 @@ texture = ExtResource("1_virvg")
 [node name="item" parent="." instance=ExtResource("2_1oaou")]
 position = Vector2(606, 218)
 scale = Vector2(20, 20)
-description = "Be speedy idk"
-item_name = "Speedy"
+description = "Increase speed"
+item_name = "Speed Potion"
 item_type = "obstacle"
 
 [node name="Camera2D" type="Camera2D" parent="."]

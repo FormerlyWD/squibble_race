@@ -23,7 +23,7 @@ enum State {
 var visibillity_tween:Tween
 var position_tween:Tween 
 
-func popup_fade_in(initial_pos:Node2D,final_pos:Node2D, more_info_stacking_direction:Vector2i = Vector2i(-1,0),more_info:Array[String] = ["Acceleration"]): 
+func popup_fade_in(initial_pos:Node2D,final_pos:Node2D, more_info_stacking_direction:Vector2i = Vector2i(-1,0),more_info:Array[String] = []): 
 	for b_popup in all_current_extra_popups:
 		b_popup.queue_free()
 		all_current_extra_popups.erase(b_popup)

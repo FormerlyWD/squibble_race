@@ -388,6 +388,7 @@ layout_mode = 2
 theme_override_fonts/font = SubResource("FontFile_ieimv")
 theme_override_font_sizes/font_size = 128
 text = "Name"
+autowrap_mode = 2
 
 [node name="name3" type="Button" parent="runner_ui/runner_data/data_table/naming"]
 texture_filter = 1
@@ -461,7 +462,7 @@ text = "z"
 label_settings = SubResource("LabelSettings_40o44")
 horizontal_alignment = 1
 vertical_alignment = 1
-autowrap_mode = 1
+autowrap_mode = 2
 
 [node name="Label2" type="Label" parent="runner_ui/runner_data/data_table/1"]
 texture_filter = 1
@@ -565,7 +566,7 @@ text = "z"
 label_settings = SubResource("LabelSettings_40o44")
 horizontal_alignment = 1
 vertical_alignment = 1
-autowrap_mode = 1
+autowrap_mode = 2
 
 [node name="Label2" type="Label" parent="runner_ui/runner_data/data_table/2"]
 texture_filter = 1
@@ -650,7 +651,7 @@ custom_minimum_size = Vector2(0, 177.173)
 layout_mode = 2
 theme_override_fonts/font = SubResource("FontFile_rntmy")
 theme_override_font_sizes/font_size = 128
-text = "confirm"
+text = "choose"
 script = ExtResource("3_ejq5b")
 
 [node name="3" type="VBoxContainer" parent="runner_ui/runner_data/data_table"]
@@ -669,7 +670,7 @@ text = "z"
 label_settings = SubResource("LabelSettings_s71ng")
 horizontal_alignment = 1
 vertical_alignment = 1
-autowrap_mode = 1
+autowrap_mode = 2
 
 [node name="Label2" type="Label" parent="runner_ui/runner_data/data_table/3"]
 texture_filter = 1
@@ -769,14 +770,6 @@ theme_override_font_sizes/font_size = 366
 text = "next user"
 script = ExtResource("4_0e1hg")
 
-[node name="next_scene_to_field" type="Button" parent="runner_ui"]
-layout_mode = 2
-offset_left = 4323.78
-offset_top = -616.655
-offset_right = 7716.78
-offset_bottom = -517.655
-script = ExtResource("4_m0162")
-
 [node name="main_camera" type="Camera2D" parent="."]
 unique_name_in_owner = true
 
@@ -870,6 +863,7 @@ text = "Oil"
 label_settings = SubResource("LabelSettings_a1ypl")
 horizontal_alignment = 1
 vertical_alignment = 1
+text_overrun_behavior = 1
 
 [node name="Label3" type="Label" parent="field_ui/field_data/field_data_table/1"]
 texture_filter = 1
@@ -926,6 +920,7 @@ text = "Oil"
 label_settings = SubResource("LabelSettings_a1ypl")
 horizontal_alignment = 1
 vertical_alignment = 1
+text_overrun_behavior = 1
 
 [node name="Label3" type="Label" parent="field_ui/field_data/field_data_table/2"]
 texture_filter = 1
@@ -993,6 +988,7 @@ text = "z"
 label_settings = SubResource("LabelSettings_s71ng")
 horizontal_alignment = 1
 vertical_alignment = 1
+text_overrun_behavior = 1
 
 [node name="Label4" type="Label" parent="field_ui/field_data/field_data_table/3"]
 texture_filter = 1
@@ -1077,11 +1073,11 @@ theme_override_fonts/font = SubResource("FontFile_rntmy")
 theme_override_font_sizes/font_size = 128
 text = "apply"
 
-[node name="go_to_loan2" type="Button" parent="."]
-offset_left = 605.261
-offset_top = 1231.35
-offset_right = 720.261
-offset_bottom = 1272.35
+[node name="go_back_from_field" type="Button" parent="."]
+offset_left = 741.545
+offset_top = 654.652
+offset_right = 856.545
+offset_bottom = 695.652
 scale = Vector2(2.3, 2.3)
 text = "LOAN"
 script = ExtResource("5_pvkbt")
@@ -1094,10 +1090,10 @@ script = ExtResource("16_7iasn")
 [node name="Button9" type="Button" parent="user_data_panel"]
 texture_filter = 1
 custom_minimum_size = Vector2(0, 180)
-offset_left = 58.6848
-offset_top = 23.4564
-offset_right = 361.685
-offset_bottom = 203.456
+offset_left = 136.549
+offset_top = 204.757
+offset_right = 439.549
+offset_bottom = 384.757
 scale = Vector2(0.5, 0.5)
 theme_override_fonts/font = SubResource("FontFile_18sb1")
 theme_override_font_sizes/font_size = 128
@@ -1106,10 +1102,10 @@ text = "debt"
 [node name="Button10" type="Button" parent="user_data_panel"]
 texture_filter = 1
 custom_minimum_size = Vector2(0, 180)
-offset_left = 75.6848
-offset_top = -76.5436
-offset_right = 334.685
-offset_bottom = 103.456
+offset_left = 153.549
+offset_top = 104.757
+offset_right = 412.549
+offset_bottom = 284.757
 scale = Vector2(0.5, 0.5)
 theme_override_fonts/font = SubResource("FontFile_18sb1")
 theme_override_font_sizes/font_size = 128
@@ -1118,10 +1114,10 @@ text = "cash"
 [node name="Button11" type="Button" parent="user_data_panel"]
 texture_filter = 1
 custom_minimum_size = Vector2(0, 180)
-offset_left = -123.271
-offset_top = 121.726
-offset_right = 199.729
-offset_bottom = 301.726
+offset_left = -43.5108
+offset_top = -99.6113
+offset_right = 279.489
+offset_bottom = 80.3887
 scale = Vector2(0.5, 0.5)
 theme_override_fonts/font = SubResource("FontFile_18sb1")
 theme_override_font_sizes/font_size = 128
@@ -1130,10 +1126,10 @@ text = "name"
 [node name="cash" type="Label" parent="user_data_panel"]
 texture_filter = 1
 custom_minimum_size = Vector2(65.495, 180)
-offset_left = -208.83
-offset_top = -76.5436
-offset_right = 357.17
-offset_bottom = 103.456
+offset_left = -130.966
+offset_top = 104.757
+offset_right = 435.034
+offset_bottom = 284.757
 scale = Vector2(0.5, 0.5)
 theme_override_fonts/font = SubResource("FontFile_ofh5l")
 theme_override_font_sizes/font_size = 128
@@ -1145,10 +1141,10 @@ vertical_alignment = 1
 [node name="debt" type="Label" parent="user_data_panel"]
 texture_filter = 1
 custom_minimum_size = Vector2(65.495, 180)
-offset_left = -208.83
-offset_top = 23.4564
-offset_right = 357.17
-offset_bottom = 203.456
+offset_left = -130.966
+offset_top = 204.757
+offset_right = 435.034
+offset_bottom = 384.757
 scale = Vector2(0.5, 0.5)
 theme_override_fonts/font = SubResource("FontFile_ofh5l")
 theme_override_font_sizes/font_size = 128
@@ -1160,10 +1156,10 @@ vertical_alignment = 1
 [node name="name" type="Label" parent="user_data_panel"]
 texture_filter = 1
 custom_minimum_size = Vector2(65.495, 180)
-offset_left = -190.48
-offset_top = 215.577
-offset_right = 375.52
-offset_bottom = 395.577
+offset_left = -105.686
+offset_top = -20.7494
+offset_right = 460.314
+offset_bottom = 159.251
 scale = Vector2(0.5, 0.5)
 theme_override_fonts/font = SubResource("FontFile_ofh5l")
 theme_override_font_sizes/font_size = 128
@@ -1181,6 +1177,7 @@ offset_right = 2880.0
 offset_bottom = 1620.0
 scale = Vector2(0.5, 0.5)
 mouse_filter = 2
+metadata/_edit_lock_ = true
 
 [node name="naming" type="VBoxContainer" parent="all_buttons"]
 layout_mode = 1
@@ -1205,7 +1202,7 @@ shop_name = "power_card"
 [node name="go_to_location2" type="Button" parent="all_buttons/naming"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 128
-text = "get debt bruh"
+text = "get debt"
 script = ExtResource("7_352m5")
 shop_name = "bank"
 
@@ -1223,11 +1220,16 @@ text = "obstacles"
 script = ExtResource("7_352m5")
 shop_name = "obstacle"
 
+[node name="next_scene_to_field" type="Button" parent="all_buttons/naming"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 128
+text = "choose running field"
+script = ExtResource("4_m0162")
+
 [connection signal="pressed" from="runner_ui/runner_data/data_table/1/confirm" to="runner_ui/runner_data/data_table/1/confirm" method="_on_pressed"]
 [connection signal="pressed" from="runner_ui/runner_data/data_table/2/confirm" to="runner_ui/runner_data/data_table/2/confirm" method="_on_pressed"]
 [connection signal="pressed" from="runner_ui/runner_data/data_table/3/confirm" to="runner_ui/runner_data/data_table/3/confirm" method="_on_pressed"]
 [connection signal="pressed" from="runner_ui/next_user" to="runner_ui/next_user" method="_on_pressed"]
-[connection signal="pressed" from="runner_ui/next_scene_to_field" to="runner_ui/next_scene_to_field" method="_on_pressed"]
 [connection signal="pressed" from="field_ui/field_data/field_data_table/1/confirm" to="field_ui/field_data/field_data_table/1/confirm" method="_on_pressed"]
 [connection signal="pressed" from="field_ui/field_data/field_data_table/2/confirm" to="field_ui/field_data/field_data_table/2/confirm" method="_on_pressed"]
 [connection signal="pressed" from="field_ui/field_data/field_data_table/3/confirm" to="field_ui/field_data/field_data_table/3/confirm" method="_on_pressed"]
@@ -1235,8 +1237,9 @@ shop_name = "obstacle"
 [connection signal="pressed" from="runner_specification/r2" to="runner_specification" method="_on_r_2_pressed"]
 [connection signal="pressed" from="runner_specification/r3" to="runner_specification" method="_on_r_3_pressed"]
 [connection signal="pressed" from="runner_specification/apply" to="runner_specification" method="_on_apply_pressed"]
-[connection signal="pressed" from="go_to_loan2" to="go_to_loan2" method="_on_pressed"]
+[connection signal="pressed" from="go_back_from_field" to="go_back_from_field" method="_on_pressed"]
 [connection signal="pressed" from="all_buttons/naming/go_to_location" to="all_buttons/naming/go_to_location" method="_on_pressed"]
 [connection signal="pressed" from="all_buttons/naming/go_to_location2" to="all_buttons/naming/go_to_location2" method="_on_pressed"]
 [connection signal="pressed" from="all_buttons/naming/go_to_location3" to="all_buttons/naming/go_to_location3" method="_on_pressed"]
 [connection signal="pressed" from="all_buttons/naming/go_to_location4" to="all_buttons/naming/go_to_location4" method="_on_pressed"]
+[connection signal="pressed" from="all_buttons/naming/next_scene_to_field" to="all_buttons/naming/next_scene_to_field" method="_on_pressed"]

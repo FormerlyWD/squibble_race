@@ -10,8 +10,7 @@ func generate_users(amount:int):
 		new_user.user_number = user_count+1
 		$"..".user_dict[new_user.user_number] = new_user
 		add_child(new_user)
-		new_user.betted_runner_number = 1
-	user_data.current_user = user_data.get_controller()
+		new_user.betted_runner_number = 0
 
 func apply_random_stats_for_debug():
 	pass

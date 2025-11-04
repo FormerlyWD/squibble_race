@@ -33,9 +33,9 @@ enum Status {
 @onready var pixel_to_feet:float = 2.5/14
 @onready var amount_of_fields_generated:int = 30
 @onready var all_possible_obstacle_densities:Dictionary = {
-	"no obstacles":0,
+	"empty":0,
 	"low":4,
-	"medium":8,
+	"med":8,
 	"high":12
 }
 

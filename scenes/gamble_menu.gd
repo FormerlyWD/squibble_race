@@ -15,7 +15,7 @@ signal data_ready
 func game_ready():
 	dupelicate_item_type_matching()
 func round_ready():
-	print("FGFGFGDF")
+
 	on_next_user() # burst
 func on_next_user():
 	%user_data_panel.format_panel()
@@ -25,7 +25,8 @@ func on_next_user():
 	item_type_to_dedicated_shop["power_card"].reset(3)
 	item_type_to_dedicated_shop["climate_token"].reset()
 func parsed_all_users():
-	pass # switch scene to simulation here
+	field_info.apply_field_data(%field_data_table.selected_field_pool.pick_random())
+	game_info.change_scene(game_info.Location.SIMULATION)
 func _ready() -> void:
 	
 
@@ -33,7 +34,7 @@ func _ready() -> void:
 	user_data.finished_user_cycle.connect(parsed_all_users)
 	game_info.pick_data()
 	game_ready()
-	round_ready()
+	user_data.emit_signal("next_user")
 	
 func dupelicate_item_type_matching():
 	user_data.procession.item_type_to_dedicated_shop = item_type_to_dedicated_shop.duplicate()
@@ -61,12 +62,11 @@ func on_data_ready():
 
 
 func item_click_detection():
-	print("PRESSED")
-	
+
 	user_data.procession.on_simulation_procession_list 
 	var hovered_item:item = user_data.user_mouse.hovered_item 
 	if hovered_item == null:
-		print("BUT NOTHING")
+
 		return
 	
 	if hovered_item.item_price > user_data.current_user.held_cash:

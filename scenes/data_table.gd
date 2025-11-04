@@ -22,10 +22,10 @@ func generate_dictionary() -> void:
 		if detect_weakness_resist_positions_automatically and dynamic_typing_icons:
 			match runner_info.convert_display_name_to_real_name(stat.text):
 				"resistance":
-					print(stat.global_position.y)
+
 					resistance_y_pos = stat.global_position.y
 				"weaknesses":
-					print(stat.global_position.y)
+
 					weakness_y_pos = stat.global_position.y
 		all_label_dictionary[runner_info.convert_display_name_to_real_name(stat.text)] = []
 	# rest
@@ -45,7 +45,7 @@ func generate_dictionary() -> void:
 			#
 			var capitalized_name:String = runner_info.chosen_runners[row_count-1]
 			capitalized_name.capitalize()
-			print(capitalized_name)
+
 			var stat_value =  runner_info.runner_pool[capitalized_name][stat_name]
 			
 			all_label_dictionary[stat_name].append(stat_label)

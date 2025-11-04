@@ -13,6 +13,7 @@ func _ready() -> void:
 
 	
 func plot_token_points(amount:Vector2i):
+	plotted_points.clear()
 	var scaled_token_diameter:float = token_diameter*settings.menu_pixel_scale
 	var scaled_y_gap:float = y_gap*settings.menu_pixel_scale
 	var scaled_x_gap:float = x_gap*settings.menu_pixel_scale
