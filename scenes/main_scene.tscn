@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://b04mct62lhdak"]
+[gd_scene load_steps=13 format=3 uid="uid://b04mct62lhdak"]
 
 [ext_resource type="Script" path="res://scenes/main_scene.gd" id="1_lnj0d"]
 [ext_resource type="Script" path="res://scenes/systems.gd" id="2_wb70o"]
@@ -11,7 +11,6 @@
 [ext_resource type="Script" path="res://scenes/all_runners.gd" id="6_rvdtp"]
 [ext_resource type="Script" path="res://scenes/length_testing.gd" id="6_yh4gp"]
 [ext_resource type="Script" path="res://scenes/field_functionality.gd" id="7_06qor"]
-[ext_resource type="PackedScene" uid="uid://by5ptkfsbnl2t" path="res://objects/obstacle.tscn" id="10_10sij"]
 
 [sub_resource type="Theme" id="Theme_x5gxb"]
 
@@ -69,9 +68,6 @@ script = ExtResource("5_iraod")
 
 [node name="all_obstacles" type="Node2D" parent="game_environment"]
 unique_name_in_owner = true
-
-[node name="obstacle" parent="game_environment/all_obstacles" instance=ExtResource("10_10sij")]
-position = Vector2(79, -10)
 
 [node name="all_runners" type="Node2D" parent="game_environment"]
 unique_name_in_owner = true

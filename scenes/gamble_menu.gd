@@ -27,8 +27,8 @@ func on_next_user():
 	item_type_to_dedicated_shop["climate_token"].reset()
 func parsed_all_users():
 	
-	
-	
+	user_data.procession.post_shop_procession()
+	user_data.procession.simulation_procession()
 	field_info.apply_field_data(%field_data_table.selected_field_pool.pick_random())
 	
 	game_info.change_scene(game_info.Location.SIMULATION)
@@ -53,6 +53,7 @@ func _input(event: InputEvent) -> void:
 			item_click_detection()
 			
 func on_runner_pool_generated():
+	
 	field_info.finished_generating_bulk_field.connect(on_field_pool_generated)
 	
 	field_info.generate_bulk_field_in_pool()
