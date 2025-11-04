@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://bsg6jw5fryqo1"]
+[gd_scene load_steps=29 format=3 uid="uid://bsg6jw5fryqo1"]
 
 [ext_resource type="Script" path="res://scenes/gamble_menu.gd" id="1_wfe4v"]
 [ext_resource type="Script" path="res://scenes/data_table.gd" id="2_sge07"]
@@ -15,6 +15,7 @@
 [ext_resource type="Script" path="res://scenes/runner_specification.gd" id="13_2e70t"]
 [ext_resource type="PackedScene" uid="uid://dngkmawe005i0" path="res://shop_sections/Obstacle_shop.tscn" id="14_15qsb"]
 [ext_resource type="PackedScene" uid="uid://12wna1st82bg" path="res://shop_sections/Climate_tokens.tscn" id="15_fxs43"]
+[ext_resource type="Script" path="res://scenes/user_panel/user_data_panel.gd" id="16_7iasn"]
 
 [sub_resource type="FontFile" id="FontFile_ieimv"]
 cache/0/128/0/ascent = 0.0
@@ -305,11 +306,39 @@ cache/0/326/0/underline_position = 0.0
 cache/0/326/0/underline_thickness = 0.0
 cache/0/326/0/scale = 1.0
 
+[sub_resource type="FontFile" id="FontFile_18sb1"]
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/128/0/ascent = 0.0
+cache/0/128/0/descent = 0.0
+cache/0/128/0/underline_position = 0.0
+cache/0/128/0/underline_thickness = 0.0
+cache/0/128/0/scale = 1.0
+
+[sub_resource type="FontFile" id="FontFile_ofh5l"]
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/128/0/ascent = 0.0
+cache/0/128/0/descent = 0.0
+cache/0/128/0/underline_position = 0.0
+cache/0/128/0/underline_thickness = 0.0
+cache/0/128/0/scale = 1.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_rwi4c"]
+font_size = 128
+outline_color = Color(0, 0, 0, 1)
+
 [node name="choice_menu" type="Node2D"]
 rotation = -0.00222542
 script = ExtResource("1_wfe4v")
 
-[node name="loan_shop" parent="." instance=ExtResource("7_nuigq")]
+[node name="bank" parent="." instance=ExtResource("7_nuigq")]
 position = Vector2(-1920, 0)
 
 [node name="runner_ui" type="Control" parent="."]
@@ -742,20 +771,11 @@ script = ExtResource("4_0e1hg")
 
 [node name="next_scene_to_field" type="Button" parent="runner_ui"]
 layout_mode = 2
-offset_left = 3006.67
-offset_top = 149.796
-offset_right = 6399.67
-offset_bottom = 248.796
+offset_left = 4323.78
+offset_top = -616.655
+offset_right = 7716.78
+offset_bottom = -517.655
 script = ExtResource("4_m0162")
-
-[node name="go_to_loan" type="Button" parent="."]
-offset_left = 494.831
-offset_top = -372.9
-offset_right = 609.831
-offset_bottom = -331.9
-scale = Vector2(2.3, 2.3)
-text = "LOAN"
-script = ExtResource("7_352m5")
 
 [node name="main_camera" type="Camera2D" parent="."]
 unique_name_in_owner = true
@@ -996,7 +1016,14 @@ script = ExtResource("7_bac6e")
 [node name="power_card_shop" parent="." instance=ExtResource("12_4248i")]
 position = Vector2(-3840, 0)
 
+[node name="obstacle_shop" parent="." instance=ExtResource("14_15qsb")]
+position = Vector2(-5760, 0)
+
+[node name="climate_token_shop" parent="." instance=ExtResource("15_fxs43")]
+position = Vector2(-7680, 0)
+
 [node name="runner_specification" type="CanvasLayer" parent="."]
+unique_name_in_owner = true
 visible = false
 offset = Vector2(978.645, 512.865)
 transform = Transform2D(1, 0, 0, 1, 978.645, 512.865)
@@ -1050,12 +1077,6 @@ theme_override_fonts/font = SubResource("FontFile_rntmy")
 theme_override_font_sizes/font_size = 128
 text = "apply"
 
-[node name="obstacle_shop" parent="." instance=ExtResource("14_15qsb")]
-position = Vector2(-5760, 0)
-
-[node name="climate_token_shop" parent="." instance=ExtResource("15_fxs43")]
-position = Vector2(-7680, 0)
-
 [node name="go_to_loan2" type="Button" parent="."]
 offset_left = 605.261
 offset_top = 1231.35
@@ -1065,12 +1086,148 @@ scale = Vector2(2.3, 2.3)
 text = "LOAN"
 script = ExtResource("5_pvkbt")
 
+[node name="user_data_panel" type="Node2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(653.49, -339.673)
+script = ExtResource("16_7iasn")
+
+[node name="Button9" type="Button" parent="user_data_panel"]
+texture_filter = 1
+custom_minimum_size = Vector2(0, 180)
+offset_left = 58.6848
+offset_top = 23.4564
+offset_right = 361.685
+offset_bottom = 203.456
+scale = Vector2(0.5, 0.5)
+theme_override_fonts/font = SubResource("FontFile_18sb1")
+theme_override_font_sizes/font_size = 128
+text = "debt"
+
+[node name="Button10" type="Button" parent="user_data_panel"]
+texture_filter = 1
+custom_minimum_size = Vector2(0, 180)
+offset_left = 75.6848
+offset_top = -76.5436
+offset_right = 334.685
+offset_bottom = 103.456
+scale = Vector2(0.5, 0.5)
+theme_override_fonts/font = SubResource("FontFile_18sb1")
+theme_override_font_sizes/font_size = 128
+text = "cash"
+
+[node name="Button11" type="Button" parent="user_data_panel"]
+texture_filter = 1
+custom_minimum_size = Vector2(0, 180)
+offset_left = -123.271
+offset_top = 121.726
+offset_right = 199.729
+offset_bottom = 301.726
+scale = Vector2(0.5, 0.5)
+theme_override_fonts/font = SubResource("FontFile_18sb1")
+theme_override_font_sizes/font_size = 128
+text = "name"
+
+[node name="cash" type="Label" parent="user_data_panel"]
+texture_filter = 1
+custom_minimum_size = Vector2(65.495, 180)
+offset_left = -208.83
+offset_top = -76.5436
+offset_right = 357.17
+offset_bottom = 103.456
+scale = Vector2(0.5, 0.5)
+theme_override_fonts/font = SubResource("FontFile_ofh5l")
+theme_override_font_sizes/font_size = 128
+text = "24"
+label_settings = SubResource("LabelSettings_rwi4c")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="debt" type="Label" parent="user_data_panel"]
+texture_filter = 1
+custom_minimum_size = Vector2(65.495, 180)
+offset_left = -208.83
+offset_top = 23.4564
+offset_right = 357.17
+offset_bottom = 203.456
+scale = Vector2(0.5, 0.5)
+theme_override_fonts/font = SubResource("FontFile_ofh5l")
+theme_override_font_sizes/font_size = 128
+text = "24"
+label_settings = SubResource("LabelSettings_rwi4c")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="name" type="Label" parent="user_data_panel"]
+texture_filter = 1
+custom_minimum_size = Vector2(65.495, 180)
+offset_left = -190.48
+offset_top = 215.577
+offset_right = 375.52
+offset_bottom = 395.577
+scale = Vector2(0.5, 0.5)
+theme_override_fonts/font = SubResource("FontFile_ofh5l")
+theme_override_font_sizes/font_size = 128
+text = "24"
+label_settings = SubResource("LabelSettings_rwi4c")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="all_buttons" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -960.0
+offset_top = -540.0
+offset_right = 2880.0
+offset_bottom = 1620.0
+scale = Vector2(0.5, 0.5)
+mouse_filter = 2
+
+[node name="naming" type="VBoxContainer" parent="all_buttons"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1474.0
+offset_top = -653.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_constants/separation = 35
+
+[node name="go_to_location" type="Button" parent="all_buttons/naming"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 128
+text = "cards"
+script = ExtResource("7_352m5")
+shop_name = "power_card"
+
+[node name="go_to_location2" type="Button" parent="all_buttons/naming"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 128
+text = "get debt bruh"
+script = ExtResource("7_352m5")
+shop_name = "bank"
+
+[node name="go_to_location3" type="Button" parent="all_buttons/naming"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 128
+text = "weather"
+script = ExtResource("7_352m5")
+shop_name = "climate_token"
+
+[node name="go_to_location4" type="Button" parent="all_buttons/naming"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 128
+text = "obstacles"
+script = ExtResource("7_352m5")
+shop_name = "obstacle"
+
 [connection signal="pressed" from="runner_ui/runner_data/data_table/1/confirm" to="runner_ui/runner_data/data_table/1/confirm" method="_on_pressed"]
 [connection signal="pressed" from="runner_ui/runner_data/data_table/2/confirm" to="runner_ui/runner_data/data_table/2/confirm" method="_on_pressed"]
 [connection signal="pressed" from="runner_ui/runner_data/data_table/3/confirm" to="runner_ui/runner_data/data_table/3/confirm" method="_on_pressed"]
 [connection signal="pressed" from="runner_ui/next_user" to="runner_ui/next_user" method="_on_pressed"]
 [connection signal="pressed" from="runner_ui/next_scene_to_field" to="runner_ui/next_scene_to_field" method="_on_pressed"]
-[connection signal="pressed" from="go_to_loan" to="go_to_loan" method="_on_pressed"]
 [connection signal="pressed" from="field_ui/field_data/field_data_table/1/confirm" to="field_ui/field_data/field_data_table/1/confirm" method="_on_pressed"]
 [connection signal="pressed" from="field_ui/field_data/field_data_table/2/confirm" to="field_ui/field_data/field_data_table/2/confirm" method="_on_pressed"]
 [connection signal="pressed" from="field_ui/field_data/field_data_table/3/confirm" to="field_ui/field_data/field_data_table/3/confirm" method="_on_pressed"]
@@ -1079,3 +1236,7 @@ script = ExtResource("5_pvkbt")
 [connection signal="pressed" from="runner_specification/r3" to="runner_specification" method="_on_r_3_pressed"]
 [connection signal="pressed" from="runner_specification/apply" to="runner_specification" method="_on_apply_pressed"]
 [connection signal="pressed" from="go_to_loan2" to="go_to_loan2" method="_on_pressed"]
+[connection signal="pressed" from="all_buttons/naming/go_to_location" to="all_buttons/naming/go_to_location" method="_on_pressed"]
+[connection signal="pressed" from="all_buttons/naming/go_to_location2" to="all_buttons/naming/go_to_location2" method="_on_pressed"]
+[connection signal="pressed" from="all_buttons/naming/go_to_location3" to="all_buttons/naming/go_to_location3" method="_on_pressed"]
+[connection signal="pressed" from="all_buttons/naming/go_to_location4" to="all_buttons/naming/go_to_location4" method="_on_pressed"]

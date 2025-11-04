@@ -19,9 +19,9 @@ func _on_area_shape_entered(area_rid: RID, area: Area2D, area_shape_index: int, 
 			
 		if root_parent.weaknesses.has(obstacle.obstacle_type):
 			
-			added_chance += obstacle.strength * root_parent.weakness_effectiveness
+			added_chance += obstacle.strength * root_parent.stats_dict["sensitivity"]
 		elif root_parent.resistance.has(obstacle.obstacle_type):
-			added_chance -= obstacle.strength * root_parent.resistance_effectiveness
+			added_chance -= obstacle.strength* root_parent.stats_dict["sensitivity"]
 			
 		if root_parent.stat_value("strength")*5>added_chance+(obstacle.strength*5):
 			if not obstacle.effect.size() == 0:

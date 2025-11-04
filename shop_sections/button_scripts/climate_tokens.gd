@@ -24,7 +24,8 @@ extends Node2D
 }
 func _ready() -> void:
 	pass
-	generate_tokens(Vector2i(4,1))
+	instanciate_dict()
+	reset()
 
 func instanciate_dict():
 	for action in token_actions_and_properties.keys():
@@ -34,10 +35,9 @@ func instanciate_dict():
 			var token_description:String = get_description_from_data(typing,action)
 			item_pool[[typing,action] ] ={"name":token_name, "description":token_description}
 			name_sorted_token_pool[token_name] = [typing,action]
-func generate_tokens(vcount:Vector2i):
+func reset(vcount:Vector2i = Vector2i(4,1)):
 	pass
 	$all_tokens.plot_token_points(vcount)
-	instanciate_dict()
 	var token_properties:Array = item_pool.keys()
 	token_properties.shuffle()
 	 

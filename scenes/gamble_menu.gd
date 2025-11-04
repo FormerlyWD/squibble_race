@@ -7,7 +7,8 @@ signal data_ready
 @onready var item_type_to_dedicated_shop:Dictionary= {
 	"power_card":$power_card_shop,
 	"obstacle":$obstacle_shop,
-	"climate_token":$climate_token_shop
+	"climate_token":$climate_token_shop,
+	"bank":$bank
 }
 
 
@@ -17,9 +18,12 @@ func round_ready():
 	print("FGFGFGDF")
 	on_next_user() # burst
 func on_next_user():
+	%user_data_panel.format_panel()
 	%data_table.generate_dictionary()
 	%field_data_table.generate_dictionary()
-	$loan_shop.update_count()
+	item_type_to_dedicated_shop["bank"].update_count()
+	item_type_to_dedicated_shop["power_card"].reset(3)
+	item_type_to_dedicated_shop["climate_token"].reset()
 func parsed_all_users():
 	pass # switch scene to simulation here
 func _ready() -> void:
@@ -65,6 +69,9 @@ func item_click_detection():
 		print("BUT NOTHING")
 		return
 	
+	if hovered_item.item_price > user_data.current_user.held_cash:
+		return
+
 	var shop:Node = item_type_to_dedicated_shop[hovered_item.item_type]
 	
 	match hovered_item.item_type:
@@ -72,6 +79,8 @@ func item_click_detection():
 			user_data.procession.post_shop_procession_list.append( {"item_type":hovered_item.item_type, "item_name":hovered_item.item_name,
 			"applied_runner":applied_runner}
 			)
+			%user_data_panel.format_panel()
+			
 		"obstacle":
 			var item_properties:Dictionary
 			item_properties["image"] = user_data.user_mouse.hovered_item.base_sprite.texture

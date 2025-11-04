@@ -5,4 +5,4 @@ class_name item
 @export var item_name:String
 @export var item_path:String
 @export var item_type:String
- 
+@export var item_price:int = 0

@@ -147,6 +147,7 @@ func create_new_runner_profile():
 	var stat_format:Dictionary = {
 	}
 	stat_format["appearance_data"] = {}
+	stat_format["sensitivity"] = 1.5
 	stat_format["runner_name"] = runner_name
 	stat_format["variance"] = variance
 	stat_format["power_grade"] = power_grade
@@ -168,6 +169,7 @@ func create_new_runner_profile():
 			stat_format[stats] = 0
 	$typings.get_weaknesses_and_resistance(power_grade,stat_format)
 	runner_pool[runner_name] = stat_format
+	
 	
 	emit_signal("finished_runner_generation")
 func choose_random_runner_from_pool():

@@ -23,8 +23,8 @@ runner_info="*res://runner/runner_info.tscn"
 settings="*res://scripts/settings.gd"
 user_data="*res://data/users/global/user_data.tscn"
 field_info="*res://scripts/field_info.gd"
-popup="*res://popups/base_popup.tscn"
 game_info="*res://data/game_info.tscn"
+popup="*res://popups/new_version/global_popup.tscn"
 
 [display]
 

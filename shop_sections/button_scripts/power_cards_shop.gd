@@ -8,26 +8,34 @@ extends Node2D
 	"stat_change_type",
 	"stat_change_value"
 ]
-@onready var item_type:String = "climate_tokens"
+@onready var item_type:String = "power_card"
+@onready var chosen_items:Array
 @onready var item_pool:Dictionary = {
 	"Motorpower":format_card("Acceleration","%",25, load("res://art/typings/typing_buttons/typing/typing1.png")),
+	
 }
 
 
 func _ready() -> void:
-	generate_cards(3)
+	select_cards_from_pool(3)
+	reset(3)
 	
-func generate_cards(card_amount:int):
-	$all_cards.plot_card_points(card_amount)
+func select_cards_from_pool(amount:int):
 	var card_pool_names:Array = item_pool.keys()
-	if card_pool_names.size() < card_amount:
-		for excess_count in card_amount-card_pool_names.size():
+	if card_pool_names.size() < amount:
+		for excess_count in amount-card_pool_names.size():
 			card_pool_names.append(card_pool_names[0])
-	card_pool_names.shuffle()
+			
+	chosen_items = card_pool_names
+func reset(card_amount:int):
+	for already_initiated_cards in $all_cards.get_children():
+		already_initiated_cards.queue_free()
+	
+	$all_cards.plot_card_points(card_amount)
 	
 	for count in card_amount:
-		instanciate_card(item_pool[card_pool_names[count]],
-		card_pool_names[count],
+		instanciate_card(item_pool[chosen_items[count]],
+		chosen_items[count],
 		Vector2($all_cards.plotted_points_x[count], $all_cards.position.y))
 		
 		

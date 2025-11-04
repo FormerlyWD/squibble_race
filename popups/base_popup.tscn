@@ -37,8 +37,7 @@ font_color = Color(0.305882, 0.129412, 0.25098, 1)
 outline_color = Color(0, 0, 0, 1)
 
 [node name="base_popup" type="Sprite2D"]
-modulate = Color(1, 1, 1, 0)
-z_index = 2
+z_index = 1
 texture = ExtResource("1_a5mlj")
 
 [node name="name" type="Label" parent="."]
