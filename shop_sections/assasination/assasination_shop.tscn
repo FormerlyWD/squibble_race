@@ -1,0 +1,52 @@
+[gd_scene load_steps=6 format=3 uid="uid://dwisdj1b546bu"]
+
+[ext_resource type="Script" path="res://shop_sections/assasination/assasination_shop.gd" id="1_tur1a"]
+[ext_resource type="Texture2D" uid="uid://cd18qar2173yr" path="res://art/shops/Sprite-0001.png" id="2_1ik27"]
+[ext_resource type="PackedScene" uid="uid://lmy6wiycgiha" path="res://shop_sections/assasination/bullet_collection.tscn" id="4_3uvuu"]
+
+[sub_resource type="FontFile" id="FontFile_ufmqj"]
+subpixel_positioning = 0
+msdf_pixel_range = 14
+msdf_size = 128
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/128/0/ascent = 0.0
+cache/0/128/0/descent = 0.0
+cache/0/128/0/underline_position = 0.0
+cache/0/128/0/underline_thickness = 0.0
+cache/0/128/0/scale = 1.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_4hkf5"]
+font_size = 128
+outline_color = Color(0, 0, 0, 1)
+
+[node name="assasination_shop" type="Node2D"]
+scale = Vector2(20, 20)
+script = ExtResource("1_tur1a")
+
+[node name="silhouette2" type="Sprite2D" parent="."]
+modulate = Color(0, 0, 0, 1)
+texture = ExtResource("2_1ik27")
+metadata/_edit_lock_ = true
+
+[node name="Label6" type="Label" parent="."]
+texture_filter = 1
+custom_minimum_size = Vector2(0, 180)
+offset_left = -835.0
+offset_top = -473.0
+offset_right = -88.0
+offset_bottom = -293.0
+scale = Vector2(0.5, 0.5)
+theme_override_fonts/font = SubResource("FontFile_ufmqj")
+theme_override_font_sizes/font_size = 128
+text = "Choose bullet:"
+label_settings = SubResource("LabelSettings_4hkf5")
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="bullet_collection" parent="." instance=ExtResource("4_3uvuu")]
+scale = Vector2(1, 1)

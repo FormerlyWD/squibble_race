@@ -3,6 +3,7 @@ extends Node2D
 
 @onready var base_powercard_ref:PackedScene = preload("res://shop_sections/powercard/items (powercards)/base_powercard.tscn")
 
+@onready var default_card_amount:int
 
 @onready var powercard_pool_file:String = "res://shop_sections/powercard/items (powercards)/item_pool/"
 @onready var powercard_format_name_to_path:Dictionary
@@ -22,8 +23,8 @@ extends Node2D
 
 func _ready() -> void:
 	extract_data_from_all_format_powercards(powercard_pool_file)
-	select_cards_from_pool(3)
-	reset(3)
+	select_cards_from_pool()
+	reset()
 	
 func extract_all_cards_to_pool():
 	pass
@@ -50,14 +51,14 @@ func extract_data_from_format_powercard(powercard_format_ref:Resource) -> Dictio
 	empty_dictionary["stat_change_value"] = powercard_format_ref.stat_change_value
 	empty_dictionary["image"] = powercard_format_ref.image
 	return empty_dictionary
-func select_cards_from_pool(amount:int):
+func select_cards_from_pool(amount:int = default_card_amount):
 	var card_pool_names:Array = item_pool.keys()
 	if card_pool_names.size() < amount:
 		for excess_count in amount-card_pool_names.size():
 			card_pool_names.append(card_pool_names[0])
 			
 	chosen_items = card_pool_names
-func reset(card_amount:int):
+func reset(card_amount:int = default_card_amount):
 	for already_initiated_cards in $all_cards.get_children():
 		already_initiated_cards.queue_free()
 	
@@ -87,11 +88,13 @@ func instanciate_card(item_dict:Dictionary, item_name:String, pos:Vector2):
 	powercard.item_path = powercard.get_path()
 	powercard.item_type = item_type
 	powercard.scale = settings.menu_pixel_scale*Vector2.ONE
-	powercard.description = generate_description(item_dict)
+	powercard.dynamic_description_scriptholder = self
+	powercard.is_description_dynamic = true
 	powercard.item_name = item_name
 	powercard.position = pos
 	
-func generate_description(item_dict:Dictionary) -> String:
+func generate_description(item_name:String) -> String:
+	var item_dict:Dictionary = item_pool[item_name]
 	if item_dict["stat_change_type"] == "%":
 		return "+" + item_dict["stat_change_type"] + str(item_dict["stat_change_value"]) + " " + item_dict["applied_stat"]
 		

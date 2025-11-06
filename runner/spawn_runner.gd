@@ -148,6 +148,7 @@ func create_new_runner_profile():
 	}
 	stat_format["appearance_data"] = {}
 	stat_format["sensitivity"] = 1.5
+	stat_format["body_state"] = "alive"
 	stat_format["runner_name"] = runner_name
 	stat_format["variance"] = variance
 	stat_format["power_grade"] = power_grade

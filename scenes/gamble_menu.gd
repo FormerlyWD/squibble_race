@@ -8,7 +8,8 @@ signal data_ready
 	"power_card":$all_shop_sections/power_card_shop,
 	"obstacle":$all_shop_sections/obstacle_shop,
 	"climate_token":$all_shop_sections/climate_token_shop,
-	"bank":$all_shop_sections/bank
+	"bank":$all_shop_sections/bank,
+	"assasination":$all_shop_sections/assasination_shop
 }
 
 
@@ -23,9 +24,10 @@ func on_next_user():
 	%data_table.generate_dictionary()
 	%field_data_table.generate_dictionary()
 	item_type_to_dedicated_shop["bank"].update_count()
-	item_type_to_dedicated_shop["power_card"].reset(3)
+	item_type_to_dedicated_shop["power_card"].reset()
 	item_type_to_dedicated_shop["climate_token"].reset()
 	item_type_to_dedicated_shop["obstacle"].reset()
+	item_type_to_dedicated_shop["assasination"].reset()
 func parsed_all_users():
 	
 	user_data.procession.post_shop_procession()
@@ -98,6 +100,8 @@ func put_item_action_in_queue(hovered_item:item):
 			item_properties["image"] = user_data.user_mouse.hovered_item.base_sprite.texture
 			
 			put_general_actions_in_queue(user_data.QueueState.SIMULATION,hovered_item.item_type,hovered_item.item_name, item_properties)
+		"assasination":
+			put_general_actions_in_queue(user_data.QueueState.POST_SHOP,hovered_item.item_type,hovered_item.item_name)
 
 func put_general_actions_in_queue(
 	queue_state:user_data.QueueState,

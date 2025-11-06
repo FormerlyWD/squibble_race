@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://bsg6jw5fryqo1"]
+[gd_scene load_steps=30 format=3 uid="uid://bsg6jw5fryqo1"]
 
 [ext_resource type="Script" path="res://scenes/gamble_menu.gd" id="1_wfe4v"]
 [ext_resource type="Script" path="res://scenes/data_table.gd" id="2_sge07"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" path="res://scenes/next_scene_to_field.gd" id="4_m0162"]
 [ext_resource type="Script" path="res://scenes/next_scene.gd" id="5_pvkbt"]
 [ext_resource type="Script" path="res://scenes/field_data_table.gd" id="6_1sc1i"]
+[ext_resource type="PackedScene" uid="uid://dwisdj1b546bu" path="res://shop_sections/assasination/assasination_shop.tscn" id="6_23o3x"]
 [ext_resource type="Script" path="res://shop_sections/button_scripts/go_to_loan.gd" id="7_352m5"]
 [ext_resource type="Script" path="res://scenes/confirm_selection.gd" id="7_bac6e"]
 [ext_resource type="PackedScene" uid="uid://drynghjlg35py" path="res://shop_sections/loan_shop.tscn" id="7_nuigq"]
@@ -351,6 +352,9 @@ position = Vector2(-5760, 0)
 
 [node name="climate_token_shop" parent="all_shop_sections" instance=ExtResource("15_fxs43")]
 position = Vector2(-7680, 0)
+
+[node name="assasination_shop" parent="all_shop_sections" instance=ExtResource("6_23o3x")]
+position = Vector2(-9598.02, -0.359616)
 
 [node name="runner_ui" type="Control" parent="."]
 unique_name_in_owner = true
@@ -1092,10 +1096,10 @@ script = ExtResource("16_7iasn")
 [node name="Button9" type="Button" parent="user_data_panel"]
 texture_filter = 1
 custom_minimum_size = Vector2(0, 180)
-offset_left = 136.549
-offset_top = 204.757
-offset_right = 439.549
-offset_bottom = 384.757
+offset_left = -110.281
+offset_top = 128.208
+offset_right = 192.719
+offset_bottom = 308.208
 scale = Vector2(0.5, 0.5)
 theme_override_fonts/font = SubResource("FontFile_18sb1")
 theme_override_font_sizes/font_size = 128
@@ -1104,10 +1108,10 @@ text = "debt"
 [node name="Button10" type="Button" parent="user_data_panel"]
 texture_filter = 1
 custom_minimum_size = Vector2(0, 180)
-offset_left = 153.549
-offset_top = 104.757
-offset_right = 412.549
-offset_bottom = 284.757
+offset_left = -93.2812
+offset_top = 28.2076
+offset_right = 165.719
+offset_bottom = 208.208
 scale = Vector2(0.5, 0.5)
 theme_override_fonts/font = SubResource("FontFile_18sb1")
 theme_override_font_sizes/font_size = 128
@@ -1116,10 +1120,10 @@ text = "cash"
 [node name="Button11" type="Button" parent="user_data_panel"]
 texture_filter = 1
 custom_minimum_size = Vector2(0, 180)
-offset_left = -43.5108
-offset_top = -99.6113
-offset_right = 279.489
-offset_bottom = 80.3887
+offset_left = -290.341
+offset_top = -176.161
+offset_right = 32.6589
+offset_bottom = 3.83926
 scale = Vector2(0.5, 0.5)
 theme_override_fonts/font = SubResource("FontFile_18sb1")
 theme_override_font_sizes/font_size = 128
@@ -1128,10 +1132,10 @@ text = "name"
 [node name="cash" type="Label" parent="user_data_panel"]
 texture_filter = 1
 custom_minimum_size = Vector2(65.495, 180)
-offset_left = -130.966
-offset_top = 104.757
-offset_right = 435.034
-offset_bottom = 284.757
+offset_left = -377.796
+offset_top = 28.2076
+offset_right = 188.204
+offset_bottom = 208.208
 scale = Vector2(0.5, 0.5)
 theme_override_fonts/font = SubResource("FontFile_ofh5l")
 theme_override_font_sizes/font_size = 128
@@ -1143,10 +1147,10 @@ vertical_alignment = 1
 [node name="debt" type="Label" parent="user_data_panel"]
 texture_filter = 1
 custom_minimum_size = Vector2(65.495, 180)
-offset_left = -130.966
-offset_top = 204.757
-offset_right = 435.034
-offset_bottom = 384.757
+offset_left = -377.796
+offset_top = 128.208
+offset_right = 188.204
+offset_bottom = 308.208
 scale = Vector2(0.5, 0.5)
 theme_override_fonts/font = SubResource("FontFile_ofh5l")
 theme_override_font_sizes/font_size = 128
@@ -1158,10 +1162,10 @@ vertical_alignment = 1
 [node name="name" type="Label" parent="user_data_panel"]
 texture_filter = 1
 custom_minimum_size = Vector2(65.495, 180)
-offset_left = -105.686
-offset_top = -20.7494
-offset_right = 460.314
-offset_bottom = 159.251
+offset_left = -352.516
+offset_top = -97.2988
+offset_right = 213.484
+offset_bottom = 82.7012
 scale = Vector2(0.5, 0.5)
 theme_override_fonts/font = SubResource("FontFile_ofh5l")
 theme_override_font_sizes/font_size = 128
@@ -1228,6 +1232,13 @@ theme_override_font_sizes/font_size = 128
 text = "choose running field"
 script = ExtResource("4_m0162")
 
+[node name="go_to_location5" type="Button" parent="all_buttons/naming"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 128
+text = "hitplace"
+script = ExtResource("7_352m5")
+shop_name = "assasination"
+
 [connection signal="pressed" from="runner_ui/runner_data/data_table/1/confirm" to="runner_ui/runner_data/data_table/1/confirm" method="_on_pressed"]
 [connection signal="pressed" from="runner_ui/runner_data/data_table/2/confirm" to="runner_ui/runner_data/data_table/2/confirm" method="_on_pressed"]
 [connection signal="pressed" from="runner_ui/runner_data/data_table/3/confirm" to="runner_ui/runner_data/data_table/3/confirm" method="_on_pressed"]
@@ -1245,3 +1256,4 @@ script = ExtResource("4_m0162")
 [connection signal="pressed" from="all_buttons/naming/go_to_location3" to="all_buttons/naming/go_to_location3" method="_on_pressed"]
 [connection signal="pressed" from="all_buttons/naming/go_to_location4" to="all_buttons/naming/go_to_location4" method="_on_pressed"]
 [connection signal="pressed" from="all_buttons/naming/next_scene_to_field" to="all_buttons/naming/next_scene_to_field" method="_on_pressed"]
+[connection signal="pressed" from="all_buttons/naming/go_to_location5" to="all_buttons/naming/go_to_location5" method="_on_pressed"]

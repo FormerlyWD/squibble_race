@@ -120,7 +120,10 @@ func spawn_runner():
 		for runner_count in range(3):
 			var new_runner:CharacterBody2D = runner_ref.instantiate()
 			var runner_stats:Dictionary = runner_info.runner_pool[runner_info.chosen_runners[runner_count]].duplicate()
+			if runner_stats["body_state"] == "dead":
+				return
 			new_runner.apply_stats(runner_stats)
+			
 			new_runner.start_moving()
 			%all_runners.add_child(new_runner)
 			

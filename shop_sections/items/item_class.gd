@@ -7,4 +7,6 @@ class_name item
 @export var item_type:String
 @export var is_item_auto_data:bool
 @export var item_data:Dictionary
+@export var is_description_dynamic:bool
+@export var dynamic_description_scriptholder:Node
 @export var item_price:int = 0

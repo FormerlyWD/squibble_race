@@ -1,0 +1,26 @@
+[gd_scene load_steps=2 format=3 uid="uid://lmy6wiycgiha"]
+
+[ext_resource type="PackedScene" uid="uid://jq4fjdr0imvr" path="res://shop_sections/items/base_item.tscn" id="1_oe8c6"]
+
+[node name="bullet_collection" type="Node2D"]
+
+[node name="item" parent="." instance=ExtResource("1_oe8c6")]
+position = Vector2(29.65, 13.8)
+item_name = "Low dmg"
+
+[node name="item_sprite" parent="item" index="0"]
+metadata/_edit_lock_ = true
+
+[node name="popup_detect" parent="item" index="1"]
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" parent="item/popup_detect" index="0"]
+metadata/_edit_lock_ = true
+
+[node name="initial_pos" parent="item/popup_detect" index="1"]
+metadata/_edit_lock_ = true
+
+[node name="final_pos" parent="item/popup_detect" index="2"]
+metadata/_edit_lock_ = true
+
+[editable path="item"]

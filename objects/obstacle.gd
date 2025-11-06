@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 @export var strength:int = 3
-@export var damage:int = 3
+@export var damage:int = 0
 @export var fragile:bool = false
 @export var effect:Dictionary = {
 
