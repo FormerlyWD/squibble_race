@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://cjai0wxk2apeh"]
+
+[ext_resource type="PackedScene" uid="uid://jq4fjdr0imvr" path="res://shop_sections/items/base_item.tscn" id="1_kqcrh"]
+
+[node name="obstacle_collection" type="Node2D"]
+
+[node name="item" parent="." instance=ExtResource("1_kqcrh")]
+position = Vector2(606, 218)
+scale = Vector2(20, 20)
+description = "Increase speed"
+item_name = "Speed Potion"
+item_type = "obstacle"
+
+[editable path="item"]

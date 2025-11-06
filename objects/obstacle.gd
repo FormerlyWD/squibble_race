@@ -4,13 +4,7 @@ extends CharacterBody2D
 @export var damage:int = 3
 @export var fragile:bool = false
 @export var effect:Dictionary = {
-	"max":300,
-	"min":100,
-	"expression":"x+15*d",
-	"state":"normal",
-	"inverse_expression":"0*x*d",
-	"targeted_stat":"speed",
-	"value":101
+
 	}
 @onready var applied_force:float = 0
 @onready var force_modifier:float = 5

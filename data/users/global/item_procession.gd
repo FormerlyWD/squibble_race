@@ -5,6 +5,7 @@ extends Node
 @onready var item_type_to_dedicated_shop:Dictionary= {
 	
 }
+
 func simulation_procession():
 	for item_process in on_simulation_procession_list:
 			match item_process["item_type"]:

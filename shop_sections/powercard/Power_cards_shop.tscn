@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://pgdeuie7mug6"]
 
-[ext_resource type="Script" path="res://shop_sections/button_scripts/power_cards_shop.gd" id="1_cj51k"]
+[ext_resource type="Script" path="res://shop_sections/powercard/power_cards_shop.gd" id="1_cj51k"]
 [ext_resource type="Texture2D" uid="uid://cd18qar2173yr" path="res://art/shops/Sprite-0001.png" id="1_py2qw"]
 [ext_resource type="Script" path="res://shop_sections/button_scripts/all_cards.gd" id="2_sau67"]
 
@@ -16,5 +16,3 @@ texture = ExtResource("1_py2qw")
 [node name="all_cards" type="Node2D" parent="."]
 position = Vector2(0, 54)
 script = ExtResource("2_sau67")
-
-[node name="Camera2D" type="Camera2D" parent="."]

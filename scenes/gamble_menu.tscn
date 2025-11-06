@@ -11,7 +11,7 @@
 [ext_resource type="Script" path="res://shop_sections/button_scripts/go_to_loan.gd" id="7_352m5"]
 [ext_resource type="Script" path="res://scenes/confirm_selection.gd" id="7_bac6e"]
 [ext_resource type="PackedScene" uid="uid://drynghjlg35py" path="res://shop_sections/loan_shop.tscn" id="7_nuigq"]
-[ext_resource type="PackedScene" uid="uid://pgdeuie7mug6" path="res://shop_sections/Power_cards_shop.tscn" id="12_4248i"]
+[ext_resource type="PackedScene" uid="uid://pgdeuie7mug6" path="res://shop_sections/powercard/Power_cards_shop.tscn" id="12_4248i"]
 [ext_resource type="Script" path="res://scenes/runner_specification.gd" id="13_2e70t"]
 [ext_resource type="PackedScene" uid="uid://dngkmawe005i0" path="res://shop_sections/Obstacle_shop.tscn" id="14_15qsb"]
 [ext_resource type="PackedScene" uid="uid://12wna1st82bg" path="res://shop_sections/Climate_tokens.tscn" id="15_fxs43"]
@@ -338,8 +338,19 @@ outline_color = Color(0, 0, 0, 1)
 rotation = -0.00222542
 script = ExtResource("1_wfe4v")
 
-[node name="bank" parent="." instance=ExtResource("7_nuigq")]
+[node name="all_shop_sections" type="Node2D" parent="."]
+
+[node name="bank" parent="all_shop_sections" instance=ExtResource("7_nuigq")]
 position = Vector2(-1920, 0)
+
+[node name="power_card_shop" parent="all_shop_sections" instance=ExtResource("12_4248i")]
+position = Vector2(-3840, 0)
+
+[node name="obstacle_shop" parent="all_shop_sections" instance=ExtResource("14_15qsb")]
+position = Vector2(-5760, 0)
+
+[node name="climate_token_shop" parent="all_shop_sections" instance=ExtResource("15_fxs43")]
+position = Vector2(-7680, 0)
 
 [node name="runner_ui" type="Control" parent="."]
 unique_name_in_owner = true
@@ -760,10 +771,10 @@ script = ExtResource("3_ejq5b")
 
 [node name="next_user" type="Button" parent="runner_ui"]
 layout_mode = 0
-offset_left = 2705.44
-offset_top = -45.8748
-offset_right = 4185.44
-offset_bottom = 449.125
+offset_left = 3332.42
+offset_top = -4.85954
+offset_right = 4812.42
+offset_bottom = 490.14
 scale = Vector2(0.35, 0.35)
 theme_override_fonts/font = SubResource("FontFile_2gftv")
 theme_override_font_sizes/font_size = 366
@@ -1008,15 +1019,6 @@ theme_override_fonts/font = ExtResource("3_pvhkl")
 theme_override_font_sizes/font_size = 128
 text = "confirm"
 script = ExtResource("7_bac6e")
-
-[node name="power_card_shop" parent="." instance=ExtResource("12_4248i")]
-position = Vector2(-3840, 0)
-
-[node name="obstacle_shop" parent="." instance=ExtResource("14_15qsb")]
-position = Vector2(-5760, 0)
-
-[node name="climate_token_shop" parent="." instance=ExtResource("15_fxs43")]
-position = Vector2(-7680, 0)
 
 [node name="runner_specification" type="CanvasLayer" parent="."]
 unique_name_in_owner = true

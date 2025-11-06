@@ -3,12 +3,12 @@ extends Node2D
 signal data_ready
 
 @onready var pixel_art_scale:int = 10
-@onready var applied_runner:String
+
 @onready var item_type_to_dedicated_shop:Dictionary= {
-	"power_card":$power_card_shop,
-	"obstacle":$obstacle_shop,
-	"climate_token":$climate_token_shop,
-	"bank":$bank
+	"power_card":$all_shop_sections/power_card_shop,
+	"obstacle":$all_shop_sections/obstacle_shop,
+	"climate_token":$all_shop_sections/climate_token_shop,
+	"bank":$all_shop_sections/bank
 }
 
 
@@ -25,10 +25,11 @@ func on_next_user():
 	item_type_to_dedicated_shop["bank"].update_count()
 	item_type_to_dedicated_shop["power_card"].reset(3)
 	item_type_to_dedicated_shop["climate_token"].reset()
+	item_type_to_dedicated_shop["obstacle"].reset()
 func parsed_all_users():
 	
 	user_data.procession.post_shop_procession()
-	user_data.procession.simulation_procession()
+	
 	field_info.apply_field_data(%field_data_table.selected_field_pool.pick_random())
 	
 	game_info.change_scene(game_info.Location.SIMULATION)
@@ -71,33 +72,55 @@ func on_data_ready():
 
 
 func item_click_detection():
-
-	user_data.procession.on_simulation_procession_list 
-	var hovered_item:item = user_data.user_mouse.hovered_item 
-	if hovered_item == null:
+	if user_data.user_mouse.hovered_item == null:
 
 		return
 	
-	if hovered_item.item_price > user_data.current_user.held_cash:
+	if user_data.user_mouse.hovered_item.item_price > user_data.current_user.held_cash:
 		return
+	put_item_action_in_queue(user_data.user_mouse.hovered_item)
+	user_data.user_mouse.hovered_item.delete()
+	user_data.user_mouse.hovered_item = null
 
+
+func put_item_action_in_queue(hovered_item:item):
 	var shop:Node = item_type_to_dedicated_shop[hovered_item.item_type]
 	
 	match hovered_item.item_type:
 		"power_card":
-			user_data.procession.post_shop_procession_list.append( {"item_type":hovered_item.item_type, "item_name":hovered_item.item_name,
-			"applied_runner":applied_runner}
-			)
+			put_general_actions_in_queue(user_data.QueueState.POST_SHOP,hovered_item.item_type,hovered_item.item_name)
 			%user_data_panel.format_panel()
-			
-		"obstacle":
-			var item_properties:Dictionary
+		"climate_token": 
+			put_general_actions_in_queue(user_data.QueueState.POST_SHOP,hovered_item.item_type,hovered_item.item_name)
+		
+		"obstacle": # on_simulation queue needs info stored for later
+			var item_properties:Dictionary = hovered_item.item_data
 			item_properties["image"] = user_data.user_mouse.hovered_item.base_sprite.texture
-			user_data.procession.on_simulation_procession_list.append( {"item_type":hovered_item.item_type, "item_name":hovered_item.item_name,
-			"applied_runner":applied_runner, "item_data":item_properties}
+			
+			put_general_actions_in_queue(user_data.QueueState.SIMULATION,hovered_item.item_type,hovered_item.item_name, item_properties)
+
+func put_general_actions_in_queue(
+	queue_state:user_data.QueueState,
+	item_type:String,
+	item_name:String,
+	item_data:Dictionary = {},
+	custom_runner_name:String = ""
+):
+	var selected_runner:String = %runner_specification.selected_runner
+	if not custom_runner_name == "":
+		selected_runner = custom_runner_name
+	if queue_state == user_data.QueueState.SIMULATION:
+		user_data.procession.on_simulation_procession_list.append( {
+			"item_type":item_type,
+			 "item_name":item_name,
+			"applied_runner":selected_runner,
+			 "item_data":item_data
+			}
 			)
-		"climate_token":
-			user_data.procession.post_shop_procession_list.append( {"item_type":hovered_item.item_type, "item_name":hovered_item.item_name,
-			"applied_runner":applied_runner})
-	user_data.user_mouse.hovered_item.delete()
-	user_data.user_mouse.hovered_item = null
+	elif queue_state == user_data.QueueState.POST_SHOP:
+		user_data.procession.post_shop_procession_list.append( {
+			"item_type":item_type,
+			 "item_name":item_name,
+			"applied_runner":selected_runner
+			}
+			)

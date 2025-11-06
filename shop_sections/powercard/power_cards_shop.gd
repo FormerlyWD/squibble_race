@@ -1,7 +1,11 @@
 extends Node2D
 
 
-@onready var base_powercard_ref:PackedScene = preload("res://shop_sections/items (powercards)/base_powercard.tscn")
+@onready var base_powercard_ref:PackedScene = preload("res://shop_sections/powercard/items (powercards)/base_powercard.tscn")
+
+
+@onready var powercard_pool_file:String = "res://shop_sections/powercard/items (powercards)/item_pool/"
+@onready var powercard_format_name_to_path:Dictionary
 @onready var necessary_procession_data:Array[String] = [
 	"applied_runner",
 	"applied_stat",
@@ -11,15 +15,41 @@ extends Node2D
 @onready var item_type:String = "power_card"
 @onready var chosen_items:Array
 @onready var item_pool:Dictionary = {
-	"Motorpower":format_card("Acceleration","%",25, load("res://art/typings/typing_buttons/typing/typing1.png")),
+	
 	
 }
 
 
 func _ready() -> void:
+	extract_data_from_all_format_powercards(powercard_pool_file)
 	select_cards_from_pool(3)
 	reset(3)
 	
+func extract_all_cards_to_pool():
+	pass
+func extract_data_from_all_format_powercards(path) :
+	var dir = DirAccess.open(path)
+	var file_array:Array[String]
+	if dir:
+		dir.list_dir_begin()
+		var file_name = dir.get_next()
+		while file_name != "":
+			var powercard:Resource = load(path + file_name)
+			item_pool[file_name.get_basename().capitalize()] = extract_data_from_format_powercard(powercard)
+			
+			file_name = dir.get_next()
+	else:
+		print("An error occurred when trying to access the path.")
+	return file_array
+	
+	
+func extract_data_from_format_powercard(powercard_format_ref:Resource) -> Dictionary:
+	var empty_dictionary:Dictionary 
+	empty_dictionary["applied_stat"] = powercard_format_ref.applied_stat 
+	empty_dictionary["stat_change_type"] = powercard_format_ref.stat_change_type
+	empty_dictionary["stat_change_value"] = powercard_format_ref.stat_change_value
+	empty_dictionary["image"] = powercard_format_ref.image
+	return empty_dictionary
 func select_cards_from_pool(amount:int):
 	var card_pool_names:Array = item_pool.keys()
 	if card_pool_names.size() < amount:

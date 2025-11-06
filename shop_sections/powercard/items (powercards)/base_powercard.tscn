@@ -1,20 +1,20 @@
 [gd_scene load_steps=5 format=3 uid="uid://d3cgtfsfd3gr3"]
 
-[ext_resource type="Script" path="res://shop_sections/items/base_item.gd" id="1_6qf2m"]
-[ext_resource type="Texture2D" uid="uid://bu6y58osjfp30" path="res://art/REFERENCED_ART/power_cards/powercards002.png" id="2_7akiy"]
-[ext_resource type="Script" path="res://shop_sections/items/poup_detect.gd" id="3_c8mkl"]
+[ext_resource type="Script" path="res://shop_sections/items/base_item.gd" id="1_1udh0"]
+[ext_resource type="Texture2D" uid="uid://bu6y58osjfp30" path="res://art/REFERENCED_ART/power_cards/powercards002.png" id="2_v7k87"]
+[ext_resource type="Script" path="res://shop_sections/items/poup_detect.gd" id="3_bjsww"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jsc8i"]
 size = Vector2(16, 24)
 
 [node name="item" type="Node2D"]
-script = ExtResource("1_6qf2m")
+script = ExtResource("1_1udh0")
 
 [node name="item_sprite" type="Sprite2D" parent="."]
-texture = ExtResource("2_7akiy")
+texture = ExtResource("2_v7k87")
 
 [node name="popup_detect" type="Area2D" parent="."]
-script = ExtResource("3_c8mkl")
+script = ExtResource("3_bjsww")
 animation_type = 6
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="popup_detect"]
@@ -24,7 +24,7 @@ shape = SubResource("RectangleShape2D_jsc8i")
 position = Vector2(0, -4.55)
 
 [node name="final_pos" type="Node2D" parent="popup_detect"]
-position = Vector2(0, -21)
+position = Vector2(0, -15)
 
 [connection signal="mouse_entered" from="popup_detect" to="popup_detect" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="popup_detect" to="popup_detect" method="_on_mouse_exited"]

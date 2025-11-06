@@ -3,6 +3,11 @@ extends Node
 signal finished_user_cycle
 signal next_user
 signal new_runner_selection(runner_number:int)
+
+enum QueueState {
+	SIMULATION,
+	POST_SHOP
+}
 @onready var user_collection:Node = %user_collection_and_generation
 @onready var user_class:Node = $user_class
 @onready var user_mouse:Node = $user_mouse
