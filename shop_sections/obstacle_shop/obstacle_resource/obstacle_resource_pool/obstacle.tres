@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="obstacle_format" load_steps=4 format=3 uid="uid://by806m52s14qs"]
+
+[ext_resource type="Script" path="res://shop_sections/obstacle_shop/obstacle_resource/obstacle_format.gd" id="1_ri6qa"]
+[ext_resource type="Script" path="res://shop_sections/obstacle_shop/effect_format.gd" id="1_ublqj"]
+
+[sub_resource type="Resource" id="Resource_y6hcx"]
+script = ExtResource("1_ublqj")
+is_effect_enabled = true
+targeted_stat = "Speed"
+is_growth_enabled = false
+growth_initial = 0.0
+growth_final = 0.0
+growth_transition_type = 0
+growth_duration = 0.0
+is_decay_reciprocated = false
+is_decay_enabled = false
+decay_initial = 0.0
+decay_final = 0.0
+decay_transition_type = 0
+decay_duration = 0.0
+
+[resource]
+script = ExtResource("1_ri6qa")
+strength = 5.0
+fragile = true
+effect = SubResource("Resource_y6hcx")

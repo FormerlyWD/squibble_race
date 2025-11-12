@@ -15,7 +15,7 @@ func _on_area_shape_entered(area_rid: RID, area: Area2D, area_shape_index: int, 
 		var obstacle:CharacterBody2D = area.get_parent()
 		var added_chance:int = base_chance
 		
-		print(obstacle.obstacle_type)
+		(obstacle.obstacle_type)
 			
 		if root_parent.weaknesses.has(obstacle.obstacle_type):
 			
@@ -24,8 +24,9 @@ func _on_area_shape_entered(area_rid: RID, area: Area2D, area_shape_index: int, 
 			added_chance -= obstacle.strength* root_parent.stats_dict["sensitivity"]
 			
 		if root_parent.stat_value("strength")*5>added_chance+(obstacle.strength*5):
-			if not obstacle.effect.size() == 0:
-				root_parent.apply_effect(obstacle.effect)
+			var obstacle_effect:effect_format = obstacle.effect
+			if not typeof(obstacle_effect) == TYPE_NIL:
+				root_parent.apply_effect(obstacle.effect.duplicate())
 			throw_obstacle(obstacle)
 		else:
 			fall(obstacle)
@@ -38,7 +39,7 @@ func _on_area_shape_entered(area_rid: RID, area: Area2D, area_shape_index: int, 
 
 func throw_obstacle(obstacle_ref:CharacterBody2D):
 	
-	obstacle_ref.applied_force += root_parent.collision_strength*5
+	obstacle_ref.applied_force += root_parent.collision_strength
 	obstacle_ref.throw()
 
 func character_collision(character_ref:CharacterBody2D):
@@ -46,5 +47,5 @@ func character_collision(character_ref:CharacterBody2D):
 	
 	character_ref.start_falling()
 func fall(x_ref:CharacterBody2D):
-	root_parent.applied_force = x_ref.strength*5
+	root_parent.applied_force = x_ref.strength
 	root_parent.start_falling()

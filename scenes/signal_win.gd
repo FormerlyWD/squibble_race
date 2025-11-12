@@ -9,7 +9,7 @@ func _ready() -> void:
 	
 
 func on_reached_end(runner_name:String):
-	print("runner_name")
+	("runner_name")
 	runners_ranking.append(runner_name)
 	amount_of_runners_reached_end +=1
 	if amount_of_runners_reached_end == 2:

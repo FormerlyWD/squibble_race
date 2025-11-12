@@ -6,9 +6,9 @@ func parse_references():
 	
 	ref.signal_win = %signal_win
 	ref.UI_run = [
-		%distance_of_runner_1,
-		%distance_of_runner_2,
-		%distance_of_runner_3
+		$"../distance_UI/disance_of_runner",
+		$"../distance_UI/disance_of_runner2",
+		$"../distance_UI/disance_of_runner3"
 	]
 func _ready() -> void:
 	parse_references()
@@ -19,6 +19,8 @@ func _ready() -> void:
 	ref.spawn_obstacles.spawn_runner()
 	%all_runners.check_runner_order()
 	user_data.procession.simulation_procession()
+	$"../distance_UI".update_all_distance_ui()
+	
 	%main_camera.generate_camera_zoom()
 	
 	

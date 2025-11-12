@@ -106,7 +106,7 @@ func convert_real_name_to_display_name(real_name:String) -> String:
 func apply_dictionary_stats(chosen_runner:CharacterBody2D, stats:Dictionary) -> void:
 	chosen_runner.runner_name = stats["runner_name"]
 	for stat in stats.keys():
-		print(stat)
+		(stat)
 		chosen_runner.stats[stat] = {
 			"base":stats[stat],
 			"modifier":100

@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://dngkmawe005i0"]
 
-[ext_resource type="Script" path="res://shop_sections/obstacle_shop.gd" id="1_v0osv"]
+[ext_resource type="Script" path="res://shop_sections/obstacle_shop/obstacle_shop.gd" id="1_v0osv"]
 [ext_resource type="Texture2D" uid="uid://cd18qar2173yr" path="res://art/shops/Sprite-0001.png" id="1_virvg"]
 [ext_resource type="PackedScene" uid="uid://cjai0wxk2apeh" path="res://shop_sections/items(obstacles)/obstacle_collection.tscn" id="3_ysii1"]
 

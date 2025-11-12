@@ -1,16 +1,28 @@
-[gd_scene load_steps=3 format=3 uid="uid://c3olo60miyy2s"]
+[gd_scene load_steps=5 format=3 uid="uid://c3olo60miyy2s"]
 
 [ext_resource type="Script" path="res://main_menu/main_menu.gd" id="1_ngb7j"]
 [ext_resource type="Script" path="res://main_menu/start_game.gd" id="2_obbd4"]
+[ext_resource type="Script" path="res://main_menu/all_user_modifications.gd" id="3_cb3qk"]
+[ext_resource type="PackedScene" uid="uid://rdxj4454t40g" path="res://ui_elements/user_huds/user_modification/user_modification_bar.tscn" id="3_tay45"]
 
 [node name="main_menu" type="Node2D"]
 script = ExtResource("1_ngb7j")
 
 [node name="start_game" type="Button" parent="."]
-offset_left = 1240.0
-offset_top = 730.0
-offset_right = 1772.0
-offset_bottom = 950.0
+offset_left = 1810.0
+offset_top = 832.0
+offset_right = 2342.0
+offset_bottom = 1052.0
 script = ExtResource("2_obbd4")
+
+[node name="all_user_modifications" type="VBoxContainer" parent="."]
+offset_left = 222.0
+offset_top = -1.0
+offset_right = 1594.0
+offset_bottom = 1087.0
+script = ExtResource("3_cb3qk")
+
+[node name="user_modification_bar" parent="all_user_modifications" instance=ExtResource("3_tay45")]
+layout_mode = 2
 
 [connection signal="pressed" from="start_game" to="start_game" method="_on_pressed"]

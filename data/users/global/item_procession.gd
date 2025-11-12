@@ -14,6 +14,9 @@ func simulation_procession():
 					
 			on_simulation_procession_list.erase(item_process) 
 func post_shop_procession():
-	for item_process in post_shop_procession_list:
-			item_type_to_dedicated_shop[item_process["item_type"]].apply_effect(item_process)
-			post_shop_procession_list.erase(item_process)
+	print(post_shop_procession_list.size())
+	for count in post_shop_procession_list.size():
+		var item_process = post_shop_procession_list[0]
+		print("yo")
+		item_type_to_dedicated_shop[item_process["item_type"]].apply_effect(item_process)
+		post_shop_procession_list.erase(item_process)

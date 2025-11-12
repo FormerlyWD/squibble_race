@@ -1,0 +1,49 @@
+[gd_scene load_steps=3 format=3 uid="uid://rdxj4454t40g"]
+
+[ext_resource type="Script" path="res://ui_elements/user_huds/user_modification/user_modification_bar.gd" id="1_8u4wd"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_13pul"]
+font_size = 64
+
+[node name="user_modification_bar" type="HBoxContainer"]
+anchors_preset = -1
+anchor_left = 0.375
+anchor_right = 0.375
+offset_right = 480.0
+offset_bottom = 1080.0
+size_flags_horizontal = 3
+script = ExtResource("1_8u4wd")
+metadata/_edit_use_anchors_ = true
+
+[node name="labelcontainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="labelcontainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "name"
+label_settings = SubResource("LabelSettings_13pul")
+
+[node name="Label2" type="Label" parent="labelcontainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "icon"
+label_settings = SubResource("LabelSettings_13pul")
+
+[node name="texteditcontainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="name" type="TextEdit" parent="texteditcontainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 64
+wrap_mode = 1
+autowrap_mode = 1
+
+[node name="TextEdit2" type="TextEdit" parent="texteditcontainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 64
+text = "phnod"

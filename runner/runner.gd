@@ -17,7 +17,7 @@ extends CharacterBody2D
 	"strength":{"base":3, "modifier":{}},
 	"recovery_speed_reduction":{"base":1, "modifier":{}},
 }
-@export var effects:Array[Dictionary] = [
+@export var effects:Array[effect_format] = [
 	
 ]
 @onready var effect_count:int
@@ -33,17 +33,7 @@ var is_stats_initiated:bool = false
 @export var health:int
 @export var weakness_effectiveness:int = 1.5
 @export var resistance_effectiveness:int = 1.5
-@onready var falling_fatique:Dictionary = {
-	"targeted_stat":"speed",
-	"initial":0,
-	"final":100,
-	"transition_type":Tween.TransitionType.TRANS_LINEAR,
-	"duration":3,
-	"special_decay_properties":{
-		"decay_disabled":true
-		
-	}
-}
+@export var falling_fatique:effect_format 
 var variance
 var pixel_to_feet:float = 2.5/14
 var applied_force:float
@@ -62,39 +52,7 @@ var current_s:MovingState = MovingState.STATIC
 
 
 
-func parse_effects(delta:float):
-	var afflicted_stats:Array[String]
-	for effect in effects:
-		var new_expr:Expression = Expression.new()
-		var x:float = effect["value"]
-		var d:float = delta
-		var parse 
-		
-		if effect["state"] == "inverse":
-			parse = new_expr.parse(effect["inverse_expression"],["x","d"])
-		else:
-			parse = new_expr.parse(effect["expression"],["x","d"]) 
-		var result:float = new_expr.execute([x,d],self) 
-		print(result)
 
-		if result <= effect["min"] or result >= effect["max"]:
-
-			if effect["state"] == "normal":
-				print(result)
-				effect["state"] = "inverse"
-			else:
-				print(result)
-				effects.erase(effect)
-				
-				if not afflicted_stats.has(effect["targeted_stat"]):
-					stats_dict[effect["targeted_stat"]]["modifier"] = 1
-				return
-		
-		effect["value"] = result
-		if afflicted_stats.has(effect["targeted_stat"]):
-			stats_dict[effect["targeted_stat"]]["modifier"] *= result/100 
-		else: stats_dict[effect["targeted_stat"]]["modifier"] = result/100
-		afflicted_stats.append(effect["targeted_stat"])
 		
 		
 func _ready() -> void:
@@ -103,39 +61,43 @@ func start_moving():
 	$facemovement.play("move")
 	current_s = MovingState.RUNNING
 
-func apply_effect(effect_dict:Dictionary):
+func apply_effect(effect_ref:effect_format):
+	if true:
+		return
 	effect_count +=1 #uniqify the effect reference
 	var current_effect_count:int = effect_count
-	print("lets go?")
+	("lets go?")
 	
 	
-	var initial_v:float = effect_dict["initial"]
-	var final_v:float = effect_dict["final"]
-	var transition:Tween.TransitionType = effect_dict["transition_type"]
-	var duration:float = effect_dict["duration"]
+	var initial_v:float = effect_ref.growth_initial
+	var final_v:float = effect_ref.growth_final
+	var transition:Tween.TransitionType = effect_ref.growth_transition_type
+	var duration:float = effect_ref.growth_duration
 	
-	effects.append(effect_dict) 
-	stats_dict[effect_dict["targeted_stat"]]["modifier"][str(current_effect_count)] = effect_dict["initial"]
+	effects.append(effect_ref) 
+	stats_dict[effect_ref.targeted_stat]["modifier"][str(current_effect_count)] = effect_ref.growth_initial
 	
 
 	
 	# growth
 	var growth_tween:Tween = create_tween()
-	var property_string_name:String = "stats_dict:" + effect_dict["targeted_stat"] + ":modifier:" + str(current_effect_count)
+	var property_string_name:String = "stats_dict:" + effect_ref.targeted_stat + ":modifier:" + str(current_effect_count)
 	growth_tween.tween_property(self,
 	property_string_name,final_v,duration).set_trans(transition)
-	print(property_string_name)
+	(property_string_name)
 	# decay
 	await growth_tween.finished
 	var is_decay_disabled:bool = false
-	if effect_dict.has("special_decay_properties"):
-		if effect_dict["special_decay_properties"]["decay_disabled"] == false:
-			initial_v = effect_dict["special_decay_properties"]["initial"]
-			final_v = effect_dict["special_decay_properties"]["final"]
-			transition = effect_dict["special_decay_properties"]["transition_type"]
-			duration= effect_dict["special_decay_properties"]["duration"]
+	if effect_ref.is_decay_enabled:
+		if effect_ref.is_decay_reciprocated:
+			is_decay_disabled = false
 		else:
-			is_decay_disabled = true
+			initial_v = effect_ref.decay_initial
+			final_v = effect_ref.decay_final
+			transition = effect_ref.decay_transition_type
+			duration= effect_ref.decay_duration
+	else:
+		is_decay_disabled = true
 	
 	
 	
@@ -149,11 +111,12 @@ func apply_effect(effect_dict:Dictionary):
 
 		await decay_tween.finished
 	
-	effects.erase(effect_dict) 
-	stats_dict[effect_dict["targeted_stat"]]["modifier"].erase(current_effect_count)
+	effects.erase(effect_ref) 
+	stats_dict[effect_ref.targeted_stat]["modifier"].erase(current_effect_count)
 	
 	
 func apply_stats(applied_stats:Dictionary):
+	print("3 times only")
 	for stat in applied_stats.keys():
 		stats_dict[stat] = {
 			"base":applied_stats[stat],
@@ -169,6 +132,7 @@ func start_falling():
 
 	apply_effect(falling_fatique.duplicate())
 	stats_dict["speed"]["base"] = stored_speed
+	print("hacktua")
 	start_moving()
 
 func _input(event: InputEvent) -> void:
@@ -228,7 +192,7 @@ func _physics_process(delta: float) -> void:
 		
 	
 	if not reached_the_end:
-		ref.UI_run[runner_order-1].text = str(round(position.x *pixel_to_feet)) + " " + "Ft."
+		ref.UI_run[runner_order-1].distance_label.text = str(round(position.x *pixel_to_feet)) + " " + "Ft."
 	
 	move_and_slide()
 	

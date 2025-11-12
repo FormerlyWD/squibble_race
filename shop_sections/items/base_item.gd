@@ -37,4 +37,4 @@ func _on_popup_detect_mouse_entered() -> void:
 	if is_description_dynamic:
 		description = dynamic_description_scriptholder.generate_description(item_name)
 	user_data.user_mouse.hovered_item = self
-	popup.popup_fade_in(initial_pos,final_pos)
+	popup.popup_fade_in(initial_pos,final_pos,popup_stacking_direction,["Acceleration"])

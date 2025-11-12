@@ -39,14 +39,14 @@ func initiate_animation_phase_one(runner_ranking:Array[String] = []):
 		var specified_user:user =  base_user
 		
 		before_and_after_values.append({})
-		print("count")
+		("count")
 		before_and_after_values[count]["held_cash"] = {}
 		before_and_after_values[count]["held_cash"]["before"] = specified_user.held_cash
 		before_and_after_values[count]["debt"] = {}
 		before_and_after_values[count]["debt"]["before"] = specified_user.debt
 		before_and_after_values[count]["debt"]["after"] = specified_user.debt*game_info.debt_modifier
 		if runner_info.chosen_runners[base_user.betted_runner_number-1] == runner_ranking[0]:
-			print("count4")
+			("count4")
 			var runner_name:String = runner_info.chosen_runners[base_user.betted_runner_number-1]
 			specified_user.held_cash *= runner_info.runner_pool[runner_name]["payout"]
 			before_and_after_values[count]["held_cash"]["after"] = specified_user.held_cash
@@ -60,7 +60,7 @@ func initiate_animation_phase_one(runner_ranking:Array[String] = []):
 		var user_progressive_hud:Node2D = $all_progress_huds.all_huds[count]
 		user_progressive_hud.user_name.text = specified_user.user_name
 		count +=1
-	print(highest_held_cash)
+	(highest_held_cash)
 	count = 0
 	for progressive_hud in $all_progress_huds.all_huds:
 		var designated_user:user = user_data.user_dict[count+1]
@@ -80,7 +80,7 @@ func initiate_animation_all_phases():
 
 func initiate_animation_phase_two():
 	var count:int = 0
-	print("F")
+	("F")
 	for progressive_hud in $all_progress_huds.all_huds:
 		var designated_user:user = user_data.user_dict[count+1]
 		var progress_animation_tween:Tween = create_tween()
@@ -94,9 +94,9 @@ func initiate_animation_phase_two():
 		count +=1
 		
 func update_text_for_cash():
-	print("yoho")
+	("yoho")
 func _ready() -> void:
-	print(runner_info.runner_ranking)
+	(runner_info.runner_ranking)
 	PHASE_ONE_COMPLETE.connect(initiate_animation_phase_two)
 	initiate_animation_phase_one(runner_info.runner_ranking)
 	

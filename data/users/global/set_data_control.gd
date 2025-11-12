@@ -8,12 +8,12 @@ func next_user():
 	
 	
 	assigned_controller +=1
-	print(assigned_controller)
+	(assigned_controller)
 	
-	if assigned_controller > %user_collection_and_generation.amount_of_users:
+	if assigned_controller > $"..".amount_of_users:
 		$"..".emit_signal("finished_user_cycle")
 		assigned_controller = 1
-		print("finished")
+		("finished")
 		return
 
 	user_data.current_user = user_data.get_controller()

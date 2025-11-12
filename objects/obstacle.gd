@@ -1,11 +1,11 @@
 extends CharacterBody2D
 
-@export var strength:int = 3
-@export var damage:int = 0
-@export var fragile:bool = false
-@export var effect:Dictionary = {
 
-	}
+@export var strength:float
+@export var fragile:bool 
+@export var image:Texture2D
+@export var effect:effect_format
+
 @onready var applied_force:float = 0
 @onready var force_modifier:float = 5
 

@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://ddnkrpkmpm4xe"]
+
+[ext_resource type="Script" path="res://ui_elements/user_huds/runner_and_selected_user.gd" id="1_jjyli"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_oklry"]
+font_size = 128
+
+[node name="runner_and_selected_user" type="MarginContainer"]
+custom_minimum_size = Vector2(7.705, 0)
+anchors_preset = -1
+anchor_right = 0.997917
+anchor_bottom = 0.30463
+offset_bottom = 1.52588e-05
+script = ExtResource("1_jjyli")
+metadata/_edit_use_anchors_ = true
+
+[node name="distance" type="Label" parent="."]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "ft."
+label_settings = SubResource("LabelSettings_oklry")
+
+[node name="all_betted_users" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(700, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+alignment = 1

@@ -11,6 +11,7 @@ enum Location {
 
 var round_count:int = 0
 
+@onready var debug_mode:bool = false
 @onready var state_and_location:Dictionary ={
 	Location.MAINMENU:"res://main_menu/main_menu.tscn",
 	Location.SHOPMENU:"res://scenes/gamble_menu.tscn",
@@ -28,12 +29,12 @@ func change_scene(location_type:Location):
 	current_game_state = location_type
 func create_new_game():
 	
-	user_data.user_collection.generate_users(3)
+	user_data.user_collection.generate_users(2)
 
 	runner_info.finished_bulk_generation.connect(on_runner_pool_generated)
 	runner_info.create_bulk_runner_profiles()
 func on_runner_pool_generated():
-	user_data.user_collection.apply_random_stats_for_debug() # FOR DEBUG
+	user_data.user_collection.apply_default_stats()
 	
 	field_info.finished_generating_bulk_field.connect(game_info_ready)
 
@@ -48,7 +49,7 @@ func game_info_ready():
 	emit_signal("GAME_ESSENTIAL_INFO_READY")
 	initiate_round()
 func initiate_round():
-	print("happened 2 times")
+	("happened 2 times")
 	round_count +=1
 	current_game_state = Location.SHOPMENU
 	emit_signal("ROUND_READY")

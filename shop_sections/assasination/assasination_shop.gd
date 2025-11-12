@@ -26,7 +26,7 @@ func reset():
 func apply_automatic_data_for_all_bullets():
 	var children_array:Array[Node] = get_child(-1).get_children()
 	for bullet in children_array:
-		print("is this looping?")
+		("is this looping?")
 		var specified_bullet:item = bullet
 		var rng_range_data:Dictionary = hit_service_pool[specified_bullet.item_name]
 		specified_bullet.is_description_dynamic = true
@@ -57,7 +57,7 @@ func apply_effect(item_data:Dictionary):
 	if runner_ref["health"] <= 0:
 		runner_ref["health"] = 0
 		runner_ref["body_state"] = "dead"
-		print("already dead")
+		("already dead")
 		return
 	var hit_percentage_chance:float= health_chance_data["base_chance"]/(runner_ref["health"]*health_chance_data["division_modifier"])
 	

@@ -14,7 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://drynghjlg35py" path="res://shop_sections/loan_shop.tscn" id="7_nuigq"]
 [ext_resource type="PackedScene" uid="uid://pgdeuie7mug6" path="res://shop_sections/powercard/Power_cards_shop.tscn" id="12_4248i"]
 [ext_resource type="Script" path="res://scenes/runner_specification.gd" id="13_2e70t"]
-[ext_resource type="PackedScene" uid="uid://dngkmawe005i0" path="res://shop_sections/Obstacle_shop.tscn" id="14_15qsb"]
+[ext_resource type="PackedScene" uid="uid://dngkmawe005i0" path="res://shop_sections/obstacle_shop/Obstacle_shop.tscn" id="14_15qsb"]
 [ext_resource type="PackedScene" uid="uid://12wna1st82bg" path="res://shop_sections/Climate_tokens.tscn" id="15_fxs43"]
 [ext_resource type="Script" path="res://scenes/user_panel/user_data_panel.gd" id="16_7iasn"]
 

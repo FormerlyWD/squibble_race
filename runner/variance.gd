@@ -118,7 +118,7 @@ func dir_contents(path) :
 			variance_names.append(file_name.get_basename())
 			file_name = dir.get_next()
 	else:
-		print("An error occurred when trying to access the path.")
+		("An error occurred when trying to access the path.")
 	return file_array
 func read_file():
 	dir_contents(buildset_path)

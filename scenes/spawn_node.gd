@@ -30,7 +30,7 @@ func update_total_line():
 		%measurement_points.ending_line = %end_line_art_comp.position.x
 		%measurement_points.starting_line = %start_line_art_comp.position.x
 		%measurement_points.total_line = abs(%measurement_points.starting_line-%measurement_points.ending_line)
-		print(%measurement_points.total_line)
+
 	
 func spawn_unique_obstacle(item_dict:Dictionary, applied_runner:String):
 	
@@ -90,7 +90,7 @@ func spawn_normal_obstacle(coordinates:Vector2, effect:Dictionary = {}):
 	var new_obs:CharacterBody2D = obstacle_ref.instantiate()
 	new_obs.position = coordinates
 	if runner_info.typings_ref.all_obstacle_type_to_color.has(new_type):
-		print(new_type)
+
 		new_obs.modulate = Color(runner_info.typings_ref.all_obstacle_type_to_color[new_type])
 	%all_obstacles.add_child.call_deferred(new_obs)
 	new_obs.obstacle_type = new_type
@@ -109,7 +109,7 @@ func spawn_runner():
 	var positioning_count:int = 0
 	if runner_info.chosen_runners.size() == 0:
 		for runner_count in range(3):
-			var new_runner:CharacterBody2D = runner_ref.instantiate()
+			var new_runner:CharacterBody2D = runner_ref.duplicate().instantiate()
 			%all_runners.add_child(new_runner)
 			new_runner.position.y = %measurement_points.all_y_positionings[positioning_count]+1
 			new_runner.position.x = %measurement_points.starting_line
@@ -117,8 +117,12 @@ func spawn_runner():
 			positioning_count +=2
 		return
 	else:
+		var breakpoint_new_runner:CharacterBody2D
 		for runner_count in range(3):
-			var new_runner:CharacterBody2D = runner_ref.instantiate()
+	
+			var new_runner:CharacterBody2D = runner_ref.duplicate().instantiate()
+			if runner_count == 0:
+				breakpoint_new_runner = new_runner
 			var runner_stats:Dictionary = runner_info.runner_pool[runner_info.chosen_runners[runner_count]].duplicate()
 			if runner_stats["body_state"] == "dead":
 				return

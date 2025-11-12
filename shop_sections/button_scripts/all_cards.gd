@@ -1,7 +1,7 @@
 extends Node2D
 
 @onready var plotted_points_x:Array[float]
-
+@onready var popup_stacking_direction_points:Array[Vector2i]
 @export var x_gap:float = 60
 @export var card_diameter:float = 16
 
@@ -16,3 +16,16 @@ func plot_card_points(amount:int):
 	for point in amount:
 		plotted_points_x.append(point*(scaled_card_diameter+x_gap)- (amount-1)*(scaled_card_diameter/2+x_gap/2))
 		
+		(point)
+		if amount % 2 == 0:
+			if point+1 < amount/2+1:
+				popup_stacking_direction_points.append(Vector2i.RIGHT)
+			else:
+				popup_stacking_direction_points.append(Vector2i.LEFT)
+		elif amount % 2 == 1:
+			if point+1 <(amount-1)/2+1:
+				popup_stacking_direction_points.append(Vector2i.RIGHT)
+			elif point+1 ==(amount-1)/2+1:
+				popup_stacking_direction_points.append(Vector2i.RIGHT)
+			else:
+				popup_stacking_direction_points.append(Vector2i.LEFT)

@@ -91,12 +91,13 @@ func put_item_action_in_queue(hovered_item:item):
 	match hovered_item.item_type:
 		"power_card":
 			put_general_actions_in_queue(user_data.QueueState.POST_SHOP,hovered_item.item_type,hovered_item.item_name)
+			shop.on_buy(hovered_item.item_name, runner_info.chosen_runners.find(%runner_specification.selected_runner))
 			%user_data_panel.format_panel()
 		"climate_token": 
 			put_general_actions_in_queue(user_data.QueueState.POST_SHOP,hovered_item.item_type,hovered_item.item_name)
 		
 		"obstacle": # on_simulation queue needs info stored for later
-			var item_properties:Dictionary = hovered_item.item_data
+			var item_properties:Dictionary = shop.item_pool[hovered_item.item_name]
 			item_properties["image"] = user_data.user_mouse.hovered_item.base_sprite.texture
 			
 			put_general_actions_in_queue(user_data.QueueState.SIMULATION,hovered_item.item_type,hovered_item.item_name, item_properties)
@@ -107,7 +108,7 @@ func put_general_actions_in_queue(
 	queue_state:user_data.QueueState,
 	item_type:String,
 	item_name:String,
-	item_data:Dictionary = {},
+	item_data = {},
 	custom_runner_name:String = ""
 ):
 	var selected_runner:String = %runner_specification.selected_runner

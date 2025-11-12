@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://b04mct62lhdak"]
+[gd_scene load_steps=14 format=3 uid="uid://b04mct62lhdak"]
 
 [ext_resource type="Script" path="res://scenes/main_scene.gd" id="1_lnj0d"]
 [ext_resource type="Script" path="res://scenes/systems.gd" id="2_wb70o"]
@@ -11,8 +11,8 @@
 [ext_resource type="Script" path="res://scenes/all_runners.gd" id="6_rvdtp"]
 [ext_resource type="Script" path="res://scenes/length_testing.gd" id="6_yh4gp"]
 [ext_resource type="Script" path="res://scenes/field_functionality.gd" id="7_06qor"]
-
-[sub_resource type="Theme" id="Theme_x5gxb"]
+[ext_resource type="Script" path="res://scenes/distance_ui.gd" id="12_4fr6o"]
+[ext_resource type="PackedScene" uid="uid://ddnkrpkmpm4xe" path="res://ui_elements/user_huds/runner_and_selected_user.tscn" id="12_w47r7"]
 
 [node name="main_scene" type="Node2D"]
 script = ExtResource("1_lnj0d")
@@ -127,39 +127,41 @@ position = Vector2(9, -59)
 [node name="end_point" type="Node2D" parent="measure_points_x"]
 position = Vector2(94.015, -53.75)
 
-[node name="UI" type="CanvasLayer" parent="."]
-offset = Vector2(779.2, 97.325)
-transform = Transform2D(1, 0, 0, 1, 779.2, 97.325)
+[node name="distance_UI" type="Node2D" parent="."]
+script = ExtResource("12_4fr6o")
 
-[node name="distance_of_runner_1" type="TextEdit" parent="UI"]
-unique_name_in_owner = true
-offset_left = -25.0
-offset_top = -95.0
-offset_right = 250.0
-offset_bottom = 16.0
-theme = SubResource("Theme_x5gxb")
-theme_override_font_sizes/font_size = 76
-text = "f"
+[node name="disance_of_runner" parent="distance_UI" instance=ExtResource("12_w47r7")]
+anchor_left = 0.23125
+anchor_top = -0.0916667
+anchor_right = 0.595833
+anchor_bottom = 0.0703704
+offset_left = 181.0
+offset_top = -122.0
+offset_right = 881.0
+offset_bottom = 53.0
+scale = Vector2(0.1, 0.1)
 
-[node name="distance_of_runner_2" type="TextEdit" parent="UI"]
-unique_name_in_owner = true
-offset_left = 250.54
-offset_top = -95.325
-offset_right = 525.54
-offset_bottom = 15.675
-theme = SubResource("Theme_x5gxb")
-theme_override_font_sizes/font_size = 76
-text = "f"
+[node name="disance_of_runner2" parent="distance_UI" instance=ExtResource("12_w47r7")]
+anchor_left = 0.23125
+anchor_top = -0.0916667
+anchor_right = 0.595833
+anchor_bottom = 0.0703704
+offset_left = 89.0
+offset_top = -122.0
+offset_right = 789.0
+offset_bottom = 53.0
+scale = Vector2(0.1, 0.1)
 
-[node name="distance_of_runner_3" type="TextEdit" parent="UI"]
-unique_name_in_owner = true
-offset_left = 526.54
-offset_top = -94.325
-offset_right = 801.54
-offset_bottom = 16.675
-theme = SubResource("Theme_x5gxb")
-theme_override_font_sizes/font_size = 76
-text = "f"
+[node name="disance_of_runner3" parent="distance_UI" instance=ExtResource("12_w47r7")]
+anchor_left = 0.23125
+anchor_top = -0.0916667
+anchor_right = 0.595833
+anchor_bottom = 0.0703704
+offset_left = 5.00001
+offset_top = -124.0
+offset_right = 705.0
+offset_bottom = 51.0
+scale = Vector2(0.1, 0.1)
 
 [connection signal="timeout" from="systems/length_testing/runner_similarity_gap_acc" to="systems/length_testing" method="_on_runner_similarity_gap_timeout"]
 [connection signal="timeout" from="systems/length_testing/runner_similarity_gap_sacc" to="systems/length_testing" method="_on_runner_similarity_gap_sacc_timeout"]

@@ -1,8 +1,9 @@
-[gd_scene load_steps=31 format=3 uid="uid://csqh6y7sh6rrj"]
+[gd_scene load_steps=33 format=3 uid="uid://csqh6y7sh6rrj"]
 
 [ext_resource type="Texture2D" uid="uid://dna66umrpttd4" path="res://art/runners/fall/base_sprit(e1.png" id="1_3eeqh"]
 [ext_resource type="Script" path="res://runner/runner.gd" id="1_73seq"]
 [ext_resource type="Texture2D" uid="uid://dd3k2dx5di0si" path="res://art/runners/fall/base_sprit(e2.png" id="2_6a1lv"]
+[ext_resource type="Script" path="res://shop_sections/obstacle_shop/effect_format.gd" id="2_x1biq"]
 [ext_resource type="Texture2D" uid="uid://cko5yh4qp8plc" path="res://art/runners/fall/base_sprit(e3.png" id="3_dfx67"]
 [ext_resource type="Texture2D" uid="uid://beehqp3sfnx3q" path="res://art/runners/fall/base_sprit(e4.png" id="4_j6a5x"]
 [ext_resource type="Texture2D" uid="uid://yqwg6vmjr3lo" path="res://art/runners/fall/base_sprit(e5.png" id="5_c2x3d"]
@@ -23,6 +24,22 @@
 [ext_resource type="Texture2D" uid="uid://jm0yxorkdr4r" path="res://art/base_sprite.png" id="21_tplqm"]
 [ext_resource type="Script" path="res://runner/baseface.gd" id="22_f53x0"]
 [ext_resource type="Script" path="res://runner/area_2d.gd" id="22_ntyeb"]
+
+[sub_resource type="Resource" id="Resource_xsty8"]
+script = ExtResource("2_x1biq")
+is_effect_enabled = true
+targeted_stat = "speed"
+is_growth_enabled = false
+growth_initial = 0.0
+growth_final = 100.0
+growth_transition_type = 4
+growth_duration = 1.0
+is_decay_reciprocated = true
+is_decay_enabled = false
+decay_initial = 0.0
+decay_final = 0.0
+decay_transition_type = 0
+decay_duration = 0.0
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_1ffi2"]
 animations = [{
@@ -313,8 +330,31 @@ size = Vector2(16, 3)
 
 [node name="runner" type="CharacterBody2D"]
 script = ExtResource("1_73seq")
+stats_dict = {
+"acceleration": {
+"base": 0,
+"modifier": {}
+},
+"quadratic_acceleration": {
+"base": 0,
+"modifier": {}
+},
+"recovery_speed_reduction": {
+"base": 1,
+"modifier": {}
+},
+"speed": {
+"base": 50,
+"modifier": {}
+},
+"strength": {
+"base": 1,
+"modifier": {}
+}
+}
 collision_strength = 5.0
 weaknesses = Array[String](["Oil"])
+falling_fatique = SubResource("Resource_xsty8")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
